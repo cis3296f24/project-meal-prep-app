@@ -1,0 +1,89 @@
+/* Home Container */
+.home {
+    padding: 1rem;
+}
+
+.home h2 {
+    color: #2F363E;  
+}
+
+.home p {
+    color: #2F363E;
+    font-size: 1.5rem;
+}
+
+.home .content_div {
+    padding: .25rem 1rem;
+}
+
+.home .row {
+    background-color: #7ba2ad83; 
+    border-radius: 0.5rem;    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.home .column {
+    width: 100%;
+}
+
+.home .column img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border-radius: 0.5rem;
+    box-shadow: 0.4rem 0.4rem 0.4rem rgba(0, 0, 0, 0.6);
+}
+
+.home .column66 {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    width: 85%;
+}
+
+/* Buttons Styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.button-container button {
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #2F363E;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #faa33f;
+}
+
+/* Responsive Adjustments */
+@media only screen and (min-width: 600px) { 
+    .home .row { 
+        flex-direction: row;
+    }
+
+    .home .column33 {
+        width: 40%;
+    }
+
+    .home .column66 {
+        width: 60%;
+    }
+
+    .button-container button {
+        font-size: 1.1rem;
+        padding: 0.75rem 2rem;
+    }
+}
+
