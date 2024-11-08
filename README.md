@@ -28,9 +28,7 @@ MySQL Workbench: https://www.mysql.com/products/workbench/
 Follow this project board to know the latest status of the project: (https://github.com/orgs/cis3296f24/projects/114)  
 
 ### How to build
-- Use this github repository: ... 
+- Use this github repository: https://github.com/cis3296f24/project-meal-prep-app.git
 - Specify what branch to use for a more stable release or for cutting edge development.  
-- Use InteliJ 11
-- Specify additional library to download if needed 
-- What file and target to compile and run. 
-- What is expected to happen when the app start. 
+- Run from Meal-Prep-App-Final-Project\src\main\java\com\geraghty_web\Controller.java 
+- After a succesful run, open this link in your browser: http://localhost:8092
