@@ -1,23 +1,31 @@
-# Project Name
-Put here a short paragraph describing your project. 
-Adding an screenshot or a mockup of your application in action would be nice.  
+# Meal Prep App
+This is an app that generates new recipes.  Users can save recipes they want to try.  Then, they can select recipes to get instructions as well as a custom shopping list. 
 
 ![This is a screenshot.](images.png)
 # How to run
-Provide here instructions on how to use your application.   
-- Download the latest binary from the Release section on the right on GitHub.  
-- On the command line uncompress using
-```
-tar -xzf  
-```
-- On the command line run with
-```
-./hello
-```
-- You will see Hello World! on your terminal. 
+Downloads to run project locally. 
+VS Code: https://code.visualstudio.com/download
+Java: https://www.oracle.com/java/technologies/downloads/
+*You may have to download some additional extensions. VS Code should let you know.
+
+After downloading Java and necessary extensions, follow this path to dind the Controller.java file.  Once there run the program locally by pressing the run button.
+Meal-Prep-App-Final-Project\src\main\java\com\geraghty_web\Controller.java
+
+After a succesful run, open this link in your browser.
+http://localhost:8092
+
+
+Here is the original link to my final project which is hosted on the Linux server:
+https://cis-linux2.temple.edu/tomcat10/sp24_3308_tup13771/index.html#/home
+
+When running locally you will not be able to connect to the database because you will need my log in.  We will host a new database on MySQL server which we will all have access too.
+
+Downloads for database:
+MySQL Server: https://dev.mysql.com/downloads/mysql/
+MySQL Workbench: https://www.mysql.com/products/workbench/
 
 # How to contribute
-Follow this project board to know the latest status of the project: [http://...]([http://...])  
+Follow this project board to know the latest status of the project: (https://github.com/orgs/cis3296f24/projects/114)  
 
 ### How to build
 - Use this github repository: ... 
