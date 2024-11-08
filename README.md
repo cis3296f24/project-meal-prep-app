@@ -1,9 +1,18 @@
-Downloads to run project locally.  You may have to download some additional extensions. VS Code should let you know.
+# Meal Prep App
+This is an app that generates new recipes.  Users can save recipes they want to try.  Then, they can select recipes to get instructions as well as a custom shopping list. 
+
+![MealPrepLogo](https://github.com/user-attachments/assets/96a874b3-763e-42e8-b5d2-14f36909df07)
+# How to run
+Downloads to run project locally. 
+VS Code: https://code.visualstudio.com/download
 Java: https://www.oracle.com/java/technologies/downloads/
+*You may have to download some additional extensions. VS Code should let you know.
 
 After downloading Java and necessary extensions, follow this path to dind the Controller.java file.  Once there run the program locally by pressing the run button.
 Meal-Prep-App-Final-Project\src\main\java\com\geraghty_web\Controller.java
 
+After a succesful run, open this link in your browser.
+http://localhost:8092
 
 
 Here is the original link to my final project which is hosted on the Linux server:
@@ -15,4 +24,11 @@ Downloads for database:
 MySQL Server: https://dev.mysql.com/downloads/mysql/
 MySQL Workbench: https://www.mysql.com/products/workbench/
 
-"C:\Users\tup13771.TU\Desktop\Meal-Prep-App-Final-Project"
+# How to contribute
+Follow this project board to know the latest status of the project: (https://github.com/orgs/cis3296f24/projects/114)  
+
+### How to build
+- Use this github repository: https://github.com/cis3296f24/project-meal-prep-app.git
+- Specify what branch to use for a more stable release or for cutting edge development.  
+- Run from Meal-Prep-App-Final-Project\src\main\java\com\geraghty_web\Controller.java 
+- After a succesful run, open this link in your browser: http://localhost:8092
