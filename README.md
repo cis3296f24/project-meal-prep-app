@@ -1,7 +1,7 @@
 # Meal Prep App
 This is an app that generates new recipes.  Users can save recipes they want to try.  Then, they can select recipes to get instructions as well as a custom shopping list. 
 
-![This is a screenshot.](images.png)
+![MealPrepLogo](https://github.com/user-attachments/assets/96a874b3-763e-42e8-b5d2-14f36909df07)
 # How to run
 Downloads to run project locally. 
 VS Code: https://code.visualstudio.com/download
