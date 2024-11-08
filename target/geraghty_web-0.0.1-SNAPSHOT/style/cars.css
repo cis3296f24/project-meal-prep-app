@@ -1,0 +1,13 @@
+.cars {
+    background-color: pink;
+    padding:1rem;
+}
+.cars h3 {
+    color:blue;
+    margin-top:0rem;
+}
+
+.cars p {
+    color:green;
+    margin-top:0rem;
+}

@@ -1,0 +1,91 @@
+/* mobile first design -- everything down to the media query is for mobile */
+
+body { 
+    margin:0;                   /* no white border around browser window */
+    font-family: sans-serif;    /* no tails on the font like Times New Roman */
+    background-color: #F6F0E9; /* red, green, blue (255 is max)                                            this is the turqoise color */
+    color: #2F363E;  /* color of font */
+}
+
+#titleNav {  
+
+    /* mobile: title on top of nav */
+    display:flex; 
+    flex-direction: column;
+
+    /* fixed to top */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:1;
+
+    padding: 1rem;
+    background-color: #2F363E;
+    color: #F6F0E9;   /* font color */
+
+
+}
+
+#title {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.2rem; /* spaces out letters a bit */
+    white-space: nowrap;  /* don't allow the title to wrap */
+}
+
+#nav {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-right: 2rem;
+    white-space: nowrap;  /* don't allow nav links to wrap */
+    text-align: right;
+}
+
+#content {
+    padding: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem; 
+    /* for mobile the titleNav is taller, needs more top padding */
+    margin-top: 7rem;  
+
+    /* dont allow footer to cover up bottom of content */
+    margin-bottom: 2.5rem;
+}
+
+
+#footer {
+
+    position: fixed;
+    bottom: 0rem; 
+    left: 0rem; 
+    z-index: 1; /* make sure footer is on top of content which would have default z-index value of 0 */
+
+    color: #7ba2adf3;   /* font color */
+    background-color:#2F363E;  
+    width:100%; /* fixed elements are not 100% by default like other divs would be */
+    text-align:center;
+    padding:0.5rem;	 
+}
+    
+#titleNav, #footer {
+        /* give a little "3D"  effect to the edges of titleNav and footer */
+    box-shadow: 0rem 0rem 1rem rgba(0,0,0);  
+}
+
+
+/* desktop only */
+@media only screen and (min-width: 600px) { 
+
+
+    /* in desktop the titleNav is not as tall, so less top margin needed to prevent titleNav from hiding top of for content */
+    #content {
+        margin-top: 4.5rem;
+        /* color: red;  /* I added this to debug when the desktop rules kick in */
+    }
+    #titleNav {
+        /* flex attributes */
+        flex-direction: row;
+        justify-content: space-between; /* flex attribute will push title left and nav right, with "space between" */
+    }
+}

@@ -1,0 +1,17 @@
+.blog {
+    background-color: #7ba2ad83;;
+    padding:1rem;
+}
+.blog h2 {
+    color:#2F363E;
+}
+
+.blog a {
+    color: rgb(139, 8, 8);
+    text-decoration: none;
+}
+.blog a:hover {
+    background: white;
+}
+
+

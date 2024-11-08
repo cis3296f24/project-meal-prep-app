@@ -1,0 +1,36 @@
+/* 
+
+CSS File Naming Convention:
+
+Every JavaScript function that "Makes" a reusable UI component shall have a 
+component specific CSS file that's named like the component. Every CSS selector 
+in the file shall begin with a CSS class that matches the CSS file name.
+
+To follow the CSS naming convention, 
+   all CSS selectors in this file (named "obj.css")must start with ".obj".
+   This "localizes your styling" so that it only applies within an element 
+   classed "obj".          
+
+*/
+
+.obj {  /* applies to any dom element that's classed "obj" */
+    background-color: #DDDDDD; /*#AACCDD; */
+    margin: 1rem;
+    text-align: center;
+    border-radius:0.5rem;
+}
+
+
+.obj h2 { /* applies to any "h2" tag that's in an "obj" dom element */
+    box-sizing:border-box;
+    margin-top:0.5rem;
+    padding: 0.5rem;
+    margin-bottom:1rem;
+}
+
+.obj img { /* applies to any "img" tag that's in an "obj" dom element */
+    width:75%;
+    border-radius:0.5rem;
+    box-shadow: 0.3rem 0.3rem 0.2rem rgba(0,0,0,0.8);
+    /* box shadow: left offset, right offset, size of blur, color */
+}

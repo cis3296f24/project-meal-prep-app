@@ -1,0 +1,53 @@
+.clickSort {
+    text-align: center;
+}
+
+.clickSort table {
+    margin: auto; /* auto makes left and right margins the same, means centered */
+    margin-top: 1rem; /* rem means size of capital M at the root */
+    text-align: left;
+}
+
+.clickSort th { /* style of td elements that are inside of a thead element */
+    padding: 0.25rem;
+    padding-top: 0.5rem;
+    background-color: #7ba2adf3;
+    color: #2F363E;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+
+.clickSort th img { /* style of img tags in th tags in elements classed clickSort */
+    width:0.75rem;
+}
+
+.clickSort td {
+    padding: 0.25rem;
+    background-color: #ced7da;
+    font-size: .75rem;
+}
+
+.clickSort .shadowImage img {
+    width: 4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0.25rem 0.25rem 0.25rem #AAAAAA;
+}
+
+.clickSort .simple img {
+    width: 6rem;
+}
+
+.clickSort .textAlignRight {
+    text-align: right;
+}
+
+.clickSort .textAlignCenter {
+    text-align: center;
+}
+
+.clickSort .nowrap {
+    white-space:nowrap;
+}
