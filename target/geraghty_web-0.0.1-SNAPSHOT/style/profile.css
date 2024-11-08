@@ -1,0 +1,60 @@
+/*
+CSS file naming convention says all rules in this file need 
+to start with a class that's the same names as the CSS file.
+*/
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 1rem;
+    
+    
+   
+}
+.profile {
+    
+    background-color: #7ba2ad83;;
+    color: #2F363E;
+    border-radius: 0.5rem;
+    text-align:center;
+    padding:.5rem;
+    margin:.5rem;
+}
+.profile button {
+    width: 40%;
+    background: #2F363E;
+    border: none;
+    color: white;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.profile button:hover {
+    background: #7ba2ad83;
+}
+.profile input {
+    width: 40%;
+
+    
+}
+.profile img {
+    height: 12rem;
+    border-radius: 0.5rem;
+}
+.profile h3 {
+    font-weight: bold;
+    margin: 0;
+}
+
+@media only screen and (min-width: 800px) { 
+
+    .flex { 
+        flex-direction: row;
+        
+        
+    }
+
+}
+
+

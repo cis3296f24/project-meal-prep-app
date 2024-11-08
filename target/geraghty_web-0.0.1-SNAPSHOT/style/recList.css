@@ -1,0 +1,22 @@
+.recList {
+    
+    background-color: #f8f6f5;
+    color: #2F363E;;
+    border-radius: 0.5rem;
+    border: .5px solid black;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.recList h2 {
+    margin:.5rem;
+}
+@media only screen and (min-width: 800px) { 
+
+    .recList {
+        margin: 5px;
+    }
+
+}
+
+
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- HTML comments like this... -->
+<html>
+
+<head>
+    <title>Title Nav Using Flexbox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    <link href="style/main.css" rel="stylesheet" type="text/css" />
+    <link href="style/dropDown.css" rel="stylesheet" type="text/css" />
+    <link href="style/myDropDown.css" rel="stylesheet" type="text/css" />
+    <link href="style/cars.css" rel="stylesheet" type="text/css" />
+    <link href="style/blog.css" rel="stylesheet" type="text/css" />
+    <link href="style/home.css" rel="stylesheet" type="text/css" />
+    <link href="style/obj.css" rel="stylesheet" type="text/css" />
+    <link href="style/rec.css" rel="stylesheet" type="text/css" />
+    <link href="style/recList.css" rel="stylesheet" type="text/css" />
+    <link href="style/clickSort.css" rel="stylesheet" type="text/css" />
+    <link href="style/login.css" rel="stylesheet" type="text/css" />
+    <link href="style/profile.css" rel="stylesheet" type="text/css" />
+    <link href="style/insertArea.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="shortcut icon" href="icons/favicon.ico">
+
+
+    <!-- You need these two CDNs to use react, their version numbers must match -->
+    <!-- changed version on 10-20-2022 from 16.3.1 to 18 for react and react-dom -->
+    <script src='https://unpkg.com/react@18/umd/react.production.min.js'></script>
+    <script src='https://unpkg.com/react-dom@18/umd/react-dom.production.min.js'></script>
+
+    <!-- This CDN lets you use JSX (looks like HTML tags in JS) -->
+    <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+
+    <!-- This CDN lets you use React Routing -->
+    <script src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- Put JS reusable first (these are called by CGFs or by the page like the dropDown FW). -->
+    <script src="_JS_reusable/ajax_alt.js"></script>
+    <script src="_JS_reusable/dropDownFW.js"></script>
+    <script src="_JS_reusable/MakeObj.js"></script>
+    <script src="_JS_reusable/MakeFormulaList.js"></script>
+    <script src="_JS_reusable/jsSort.js"></script>
+    <script src="_JS_reusable/sortOrder.js"></script>
+    <script src="_JS_reusable/filterObjList.js"></script>
+
+    <!-- JS Content Generating functions (these are called by the router). -->
+    <script src="_JS_CGF/ObjContentNoReact.js"></script>
+    <script src="_JS_CGF/CarsComingSoon.js"></script>
+    <script src="_JS_CGF/infoContent.js"></script>
+    <script src="_JS_CGF/MakeFormulaList_CGF.js"></script>
+
+    <!-- React reusable (these are called by CGFs). -->
+    <script type="text/babel" src="_React_reusable/ConvertEle.js"></script>
+    <script type="text/babel" src="_React_reusable/MakeFormulaListR.js"></script>
+    <script type="text/babel" src="_React_reusable/MakeProfileR.js"></script>
+    <script type="text/babel" src="_React_reusable/UserInsertOrUpdate.js"></script>
+    <script type="text/babel" src="_React_reusable/FormulaInsertOrUpdate.js"></script>
+
+    <!-- React Content Generating functions (these are called by the router) -->
+    <script type="text/babel" src="_React_CGF/Blog.js"></script>
+    <script type="text/babel" src="_React_CGF/Home.js"></script>
+    <script type="text/babel" src="_React_CGF/MakeFormulaListR_CGF.js"></script>
+    <script type="text/babel" src="_React_CGF/UserFilterTable.js"></script>
+    <script type="text/babel" src="_React_CGF/FormulaFilterTable.js"></script>
+    <script type="text/babel" src="_React_CGF/Login.js"></script>
+    <script type="text/babel" src="_React_CGF/Profile.js"></script>
+    <script type="text/babel" src="_React_CGF/Logout.js"></script>
+    
+
+    <!-- Any React scripts (which typically have JSX) needs script type="text/babel" -->
+
+    <script type="text/babel">
+
+        "use strict";
+
+        dropDownFW({
+            dropHeaderStyle: "dropHeader",
+            dropContentStyle: "dropContent",
+            showStyle: "show",
+            hideStyle: "hide"
+        });
+
+        const Link = ReactRouterDOM.Link;
+        const Route = ReactRouterDOM.Route;
+
+        const App = () => (
+            <ReactRouterDOM.HashRouter>
+
+                <div id="titleNav">
+                    <div id="title">
+                        Maven Assist
+                    </div>
+                    <div id="nav">
+                        <div class="dropDown">
+                            <Link to="/home">Home</Link>
+                        </div>
+                        <div class="dropDown">
+                            <div class="dropHeader">Account</div>
+                            <div class="dropContent">
+                                <Link to="/userInsert">Register</Link> <br />
+                                <Link to="/login">Log In</Link> <br />
+                                <Link to="/logout">Log Out</Link> <br />
+                                <a href="session/read" target="_blank">Profie a</a> <br />
+                                <Link to="/profile">Profile</Link> <br />
+                            </div>
+                        </div>
+
+                        <div class="dropDown">
+                            <div class="dropHeader">Search</div>
+                            <div class="dropContent">
+                                <Link to="/usersFilterable">Show Users (from DB)</Link> <br />
+                                <Link to="/formulaFilterable">Show Formulas (from DB)</Link> <br />
+                                <Link to="/myListJS">H4 JS Component</Link> <br />
+                                <Link to="/myListR">H4 React Component</Link> <br />
+                                <Link to="/info">Info</Link> <br />
+                                <Link to="/cars">Cars</Link> <br />
+                                <Link to="/myObj">My Objects</Link> <br />
+                                <a target="_blank" href="docs/DB_proposal.pdf">My DB PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="dropDown">
+                            <Link to="/blog">Blog</Link>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content">
+                    <Route path="/" exact component={Home} />
+                    <Route path="/home" component={Home} /> 
+                    <Route path="/info" component={() => <ConvertEle ele={infoContent()} />} />
+                    <Route path="/cars" component={() => <ConvertEle ele={CarsComingSoon()} />} />
+                    <Route path="/myObj" component={() => <ConvertEle ele={ObjContentNoReact()} />} />
+                    <Route path="/myListJS" component={() => <ConvertEle ele={MakeFormulaList_CGF()} />} />
+                    <Route path="/blog" component={Blog} />
+                    <Route path="/myListR" component =  {MakeFormulaListR_CGF} />
+                    <Route path="/usersFilterable" component = {UserFilterTable} />
+                    <Route path="/formulaFilterable" component = {FormulaFilterTable} />
+                    <Route path="/userInsert" component={UserInsertOrUpdate} />
+                    <Route path="/formulaInsert" component={FormulaInsertOrUpdate} />
+                    <Route path="/login" component = {Login} />
+                    <Route path="/profile" component = {Profile} />
+                    <Route path="/logout" component = {Logout} />
+               
+                </div>
+
+                <div id="footer">
+                    [Michael Geraghty]
+                </div>
+
+            </ReactRouterDOM.HashRouter>
+        );
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+
+    </script>
+
+</body>
+
+</html>

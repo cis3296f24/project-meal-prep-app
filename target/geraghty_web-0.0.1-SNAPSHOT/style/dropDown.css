@@ -1,0 +1,78 @@
+/* To implement dropDowns, we have three styling elements (that are referenced by the JS code): 
+*
+*    - dropDown: a div container for dropDown header and (sibling associated dropDown content
+*    - dropHeader: visible upon first rendering. when you click on a drop header, 
+*          its related content will open up.
+*    - dropContent: initially hidden, but becomes visible when the dropHeader is clicked.
+*/
+
+/* This is an example of how to create a style sheet that "goes with" some "framework style JavaScript code". 
+   After selecting a name for our framework (in this case, I'm calling it "dropDown"), we name our style sheet.
+   I'm naming it "dropDown.css". Inside the style sheet, I have only one single global CSS classname ".dropDown". 
+   All style rules must begind with that single global CSS classname so that we do not claim global CSS classnames 
+   that the HTML coder (a person using our little framework) might want to use. We are avoiding polluting the 
+   global namespace. 
+*/
+
+.dropDown {
+    /* .dropDown is a parent of dropContent. Since we want to right justify dropConent with its parent,
+    assign "position relative" to the parent (.dropDown) and "position absolute" to the child (.dropContent).      */
+    position: relative;
+    /* "display:inline-block" makes divs are positioned/treated like words instead of like block/paragraph elements */
+    display: inline-block;
+    /* put a little space between drop down groups */
+    margin-right: 1.5rem;
+    font-size: 1rem;
+    color: black;
+    /* Change mouse pointer when the user hovers over a dropDown element */
+    cursor: pointer;
+}
+
+.dropDown .dropContent a {
+    color: #1888a7f3;
+    font-size: 0.75rem;
+}
+.dropDown:hover{/*backgrorund change and nav links when hovre is happening*/
+    background: #F6F0E9;
+}
+
+.dropDown .dropContent {
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+    margin-top: 0.5rem;
+    /* start the dropContent a little lower from the dropHeader */
+    padding: 0.25rem 0.5rem;
+    /* first is top/bottom, second is left/right */
+
+    background-color: #000000;
+    border-radius: 0.25rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem lightblue;
+    /* position absolute aligns with its 1st non static parent (.dropDown)  */
+    position: absolute;
+    z-index: 3;
+    /* higher z-index places the element on top, not underneath */
+
+    right: 0px;
+    /* right aligns this absolute element with its relative parent */
+
+    /* animate the change of the opacity property (fades in or out slow enough to see) */
+    transition: all 2s ease 0s;
+
+    opacity: 0;  /* initially not shown, solidness 0% */
+    visibility: hidden;
+}
+
+/* The JS code adds and removes class .show and class .hide to/from dropContent and this 
+   provides some animation due to the transition styled in .dropContent */
+
+/* when JS code adds class "show" to dropConent, the dropContent is right aligned (because of right:0px))with its 
+   first non-static parent, dropDown (which is position:relative) */
+.dropDown .show {
+    opacity: 1;  /* make it 100% solid (visible) */
+    visibility: visible;
+}
+
+.dropDown .hide {
+    opacity: 0; /* initially not shown, solidness 0% */
+    visibility: hidden;
+}

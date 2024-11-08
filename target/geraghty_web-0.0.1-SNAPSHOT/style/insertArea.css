@@ -1,0 +1,39 @@
+/* Style the HTML table that shows the tabular database data */
+
+.insertArea {
+    margin-top: 1em;
+    margin-left: 3em;
+}
+
+.insertArea td {
+    padding: 10px;
+}
+
+.insertArea input {
+   height: 2rem;
+   min-width: 15rem;
+}
+.insertArea select {
+    height: 2.5rem;
+    min-width: 15.5rem;
+}
+
+.insertArea button {
+    height: 2.5rem;
+    min-width: 10rem;
+    background: rgb(12, 155, 184);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.insertArea button:hover
+ {
+
+    background: rgb(7, 72, 86);
+
+}
+
+.insertArea .error {
+    color:maroon; /*#7B241C; */
+}

@@ -1,0 +1,78 @@
+.home {
+    
+    padding:1rem;
+}
+.home h2 {
+    color:#2F363E;  
+}
+.home p {
+    color:#2F363E;
+    font-size: 1.5rem;
+}
+
+
+.home .content_div{
+    padding: .25rem 1rem;
+}
+
+.home .row{
+
+    background-color: #7ba2ad83; 
+    border-radius: 0.5rem;    
+}
+
+/* MULTI-COLUMN */
+/* Mobile first -- all styles up to the media query are for mobile */
+
+.home .row {  /* acts like a 'row' to hold columns that add up to 98-100% wide (can be a bit less, but not more 
+        to prevent wrapping) */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+  /* 1st is top/bottom, 2nd is left/right */
+    margin-bottom: 1rem;  /* the space between sections */
+    
+}
+
+.home .column {
+    /* 1st is top/bottom, 2nd is left/right */
+    width: 100%;
+ 
+}
+
+.home .column img { /* images will fill their container */
+    
+    display: block; /* Ensures the image is treated as a block-level element */
+    margin-left: auto; /* Auto margin on the left */
+    margin-right: auto; /* Auto margin on the right */
+
+    width: 80%;
+    border-radius: 0.5rem;
+    box-shadow: 0.4rem 0.4rem 0.4rem rgba(0,0,0,0.6); /* color is black which is 60% solid */
+}
+.home .column66{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+
+    width: 85%;
+    
+}
+
+/* desktop only */
+@media only screen and (min-width: 600px) { 
+
+    .home .row { 
+        flex-direction: row;
+    }
+    /* add as many more of these different width styles as you need */
+    .home .column33 {
+        width: 40%;
+        
+    }
+    .home .column66 {
+        width: 60%;
+       
+    }
+}
+
