@@ -1,0 +1,170 @@
+/* Main styling for the MealPlan component */
+.meal-plan {
+    background-color: #f4f9f4; /* Light background color */
+    color: #333; /* Dark gray text */
+    font-family: 'Inter', sans-serif; /* Modern, clean sans-serif font */
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title styling */
+#ai-title {
+    text-align: center;
+    font-size: 2rem; /* Title font size */
+    color: #4caf50; /* Soft green for consistency */
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif; /* Clean sans-serif font for the title */
+}
+
+/* Checkout Button styling */
+.checkout-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem 0;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-button:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+/* Recipe container styling */
+.recipe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white; /* Solid white background */
+    padding: 2rem;
+    color: black;
+    font-size: 1rem; /* Font size for readability */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    width: 90%;
+    max-width: 600px;
+}
+
+/* Table container styling */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling for smaller screens */
+    margin-top: 1.5rem;
+}
+
+/* Table styling */
+.recipe-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recipe-table th,
+.recipe-table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Recipe image styling within table */
+.recipe-image {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Recipe name styling */
+.recipe-container h2 {
+    font-size: 1.5rem; /* Font size for the recipe name */
+    color: #333;
+    margin-top: 2rem; /* Space between name and image */
+    font-weight: 600; /* Bold font for the name */
+    margin-bottom: 1rem; /* Space after recipe name */
+}
+
+/* Recipe description styling */
+.recipe-container p {
+    font-size: 1.125rem; /* Font size for readability */
+    color: #555;
+    line-height: 1.6;
+    margin-top: 1.5rem; /* Space between description and name */
+    text-align: center; /* Center-align the text */
+    font-family: 'Merriweather', serif; /* Font for description */
+}
+
+/* Recipe image styling within recipe container */
+.recipe-container .recipe-image {
+    width: 100%;
+    max-width: 400px; /* Image size */
+    height: auto;
+    border-radius: 10px;
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Save Button styling */
+.save-button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.save-button:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .meal-plan {
+        padding: 2rem 1rem;
+    }
+
+    #ai-title {
+        font-size: 1.8rem; /* Adjusted title font size for small screens */
+    }
+
+    .recipe-container {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .recipe-container h2 {
+        font-size: 1.25rem; /* Smaller font size for recipe name */
+    }
+
+    .recipe-container p {
+        font-size: 1rem; /* Smaller font size for description */
+    }
+
+    .table-container {
+        padding: 1rem;
+    }
+
+    .recipe-table th,
+    .recipe-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem; /* Adjusted font size for table content */
+    }
+
+    .recipe-image {
+        max-width: 80px;
+    }
+
+    .save-button {
+        font-size: 1.1rem;
+        min-width: 250px;
+    }
+}

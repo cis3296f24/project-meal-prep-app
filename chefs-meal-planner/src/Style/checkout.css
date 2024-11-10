@@ -1,0 +1,125 @@
+/* Main checkout styling */
+.checkout {
+    background-color: #f4f9f4;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensures full page height */
+    box-sizing: border-box;
+}
+
+/* Shopping list container styling with wider layout */
+.shopping-list {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Increased width */
+    min-width: 800px;
+    max-width: 1500px; /* Wider max width */
+    margin-top: 1.5rem;
+    margin-bottom: 2rem; /* Extra margin at the bottom */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-wrap; /* Preserve structured formatting */
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+/* Title styling for shopping list section */
+.shopping-list h2 {
+    color: #4caf50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+/* Category heading styling (e.g., Produce, Dairy) */
+.shopping-list h3 {
+    color: #388e3c;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.3rem;
+}
+
+/* Individual item styling */
+.shopping-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0.5rem 0 0 1.2rem;
+}
+
+.shopping-list li {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.shopping-list li::before {
+    content: "•";
+    color: #4caf50;
+    margin-right: 0.6rem;
+    font-size: 1.2rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .checkout {
+        padding: 1.5rem 1rem;
+    }
+
+    .shopping-list {
+        padding: 1rem;
+        width: 95%; /* Full width for smaller screens */
+        max-width: 95%;
+        margin-bottom: 1.5rem; /* Extra margin at the bottom */
+    }
+
+    .shopping-list h2 {
+        font-size: 1.35rem;
+    }
+
+    .shopping-list h3 {
+        font-size: 1.15rem;
+    }
+
+    .shopping-list li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout {
+        padding: 1rem;
+    }
+
+    .shopping-list {
+        padding: 0.75rem;
+        width: 100%; /* Full width for small screens */
+        max-width: 100%;
+        margin-bottom: 1rem; /* Extra margin at the bottom */
+    }
+
+    .shopping-list h2 {
+        font-size: 1.2rem;
+    }
+
+    .shopping-list h3 {
+        font-size: 1rem;
+    }
+
+    .shopping-list li {
+        font-size: 0.9rem;
+    }
+}
