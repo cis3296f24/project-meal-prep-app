@@ -14,7 +14,7 @@ const Navbar = () => {
         <nav className="nav-bar">
             <ul>
                 <li className = "header">
-                    <NavLink to="/">Chef's Planner</NavLink>
+                    <NavLink to="/">Secret Recipes</NavLink>
                 </li>
                 <li className = "logo">
                     <img src = {tree} alt = "tree"/>

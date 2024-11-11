@@ -22,16 +22,19 @@ const MealPlanHome = () => {
             setIsLoading(true);
             try {
                 const response = await fetchDBResponse();
-                setRecipes(response);
+                // Sort recipes by ID in descending order
+                const sortedRecipes = response.sort((a, b) => b.id - a.id);
+                setRecipes(sortedRecipes);
             } catch (error) {
                 console.error('Error fetching recipes:', error);
             } finally {
                 setIsLoading(false);
             }
         };
-
+    
         fetchMeals();
     }, []);
+    
 
     const handleCheckboxChange = (index) => {
         setSelectedRecipes((prevSelectedRecipes) => ({

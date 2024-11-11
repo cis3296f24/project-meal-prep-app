@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../../Style/parkAI.css';
 import { fetchChatGPTResponse } from '../Functionality/FetchChatGPT';
+import defaultImage from '../Assets/default_img.jpg';
+
 /**
  * Component for welcoming and explaining the park search
  * functionality to a user.
@@ -38,6 +40,10 @@ const ParkAIHome = () => {
 
     const handleSave = async () => {
         try {
+            // Check if the image URL ends with .jpg; if not, use a default image
+            const imageUrl = recipeImage.endsWith('.jpg') ? recipeImage : defaultImage;
+            console.log("Image URL: ", imageUrl)
+    
             const response = await fetch('http://localhost:5000/addRecipe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -45,9 +51,10 @@ const ParkAIHome = () => {
                     name: recipeName,
                     description,
                     ingredients,
-                    image: recipeImage,
+                    image: imageUrl,
                 }),
             });
+    
             const data = await response.json();
             if (response.ok) {
                 alert("Recipe saved successfully!");
@@ -59,6 +66,7 @@ const ParkAIHome = () => {
             alert("Failed to save recipe.");
         }
     };
+    
 
     return (
         <div className='park-ai'>
