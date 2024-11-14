@@ -20,23 +20,23 @@ const ParkAIHome = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchRecipe = async () => {
-            setIsLoading(true);
-            try {
-                const response = await fetchChatGPTResponse("Give me a recipe with a name, description, and ingredients.");
-                setRecipeName(response.name);
-                setDescription(response.description);
-                setIngredients(response.ingredients);
-                setRecipeImage(response.image);
-            } catch (error) {
-                console.error('Error fetching recipe:', error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
         fetchRecipe();
     }, []);
+
+    const fetchRecipe = async () => {
+        setIsLoading(true);
+        try {
+            const response = await fetchChatGPTResponse("Give me a recipe with a name, description, and ingredients.");
+            setRecipeName(response.name);
+            setDescription(response.description);
+            setIngredients(response.ingredients);
+            setRecipeImage(response.image);
+        } catch (error) {
+            console.error('Error fetching recipe:', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     const handleSave = async () => {
         try {
@@ -72,6 +72,7 @@ const ParkAIHome = () => {
         <div className='park-ai'>
             <center>
                 <h1 id="ai-title">Recipe Recommendation</h1>
+                <button onClick={fetchRecipe} className="save-button">Fetch New Recipes</button> <br></br>
                 {isLoading ? (
                     <p>Loading recipe...</p>
                 ) : (
