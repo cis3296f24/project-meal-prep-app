@@ -24,6 +24,7 @@ import ParkPlan from './ParkPlan.js';
 import ParkAI from './ParkAI.js';
 import MealPlan from './MealPlan.js';
 import Checkout from './Checkout.js';
+import About from './About.js';
 import Navbar from './GlobalComponents/Navbar.jsx';
 import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
 import Footer from './GlobalComponents/Footer.jsx';
@@ -42,6 +43,7 @@ root.render(
                 <Route path="/ParkAI" element={<ParkAI/>} />
                 <Route path="/MealPlan" element={<MealPlan/>} />
                 <Route path="/Checkout" element={<Checkout/>} />
+                <Route path="/About" element={<About/>} />
             </Routes>
             <Footer></Footer>
         </Router>
