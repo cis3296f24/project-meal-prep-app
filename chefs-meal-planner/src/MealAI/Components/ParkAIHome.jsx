@@ -9,7 +9,7 @@ import defaultImage from '../Assets/default_img.jpg';
  * 
  * @component
  * @module ParkAIHome
- * @memberof ParkAI
+ * @memberof MealAI
  * @returns {JSX.Element} Park search welcome header
  */
 const ParkAIHome = () => {
@@ -69,7 +69,7 @@ const ParkAIHome = () => {
     
 
     return (
-        <div className='park-ai'>
+        <div className='meal-ai'>
             <center>
                 <h1 id="ai-title">Recipe Recommendation</h1>
                 <button onClick={fetchRecipe} className="save-button">Fetch New Recipes</button> <br></br>
