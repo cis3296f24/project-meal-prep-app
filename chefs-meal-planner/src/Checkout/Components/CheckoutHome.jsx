@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { fetchShoppingList } from '../../ParkAI/Functionality/FetchShoppingList';
+import { fetchShoppingList } from '../../MealAI/Functionality/FetchShoppingList';
 import '../../Style/mealPlan.css';
 
 /**
