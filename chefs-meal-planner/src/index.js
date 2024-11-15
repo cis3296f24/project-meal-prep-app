@@ -21,7 +21,7 @@ import ParkSearch from './ParkSearch.js';
 import ParkInfo from './ParkInfo.js';
 import HomePage from './HomePage.js';
 import ParkPlan from './ParkPlan.js';
-import ParkAI from './ParkAI.js';
+import MealAI from './MealAI.js';
 import MealPlan from './MealPlan.js';
 import Checkout from './Checkout.js';
 import About from './About.js';
@@ -40,7 +40,7 @@ root.render(
                 <Route path="/ParkSearch" element={<ParkSearch />} />
                 <Route path="/ParkInfo" element={<ParkInfo />} />
                 <Route path="/ParkPlan" element={<ParkPlan />} />
-                <Route path="/ParkAI" element={<ParkAI/>} />
+                <Route path="/MealAI" element={<MealAI/>} />
                 <Route path="/MealPlan" element={<MealPlan/>} />
                 <Route path="/Checkout" element={<Checkout/>} />
                 <Route path="/About" element={<About/>} />
