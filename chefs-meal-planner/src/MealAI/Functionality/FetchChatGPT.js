@@ -6,11 +6,13 @@ import axios from 'axios';
  * If both attempts fail, it falls back to DALL·E for image generation.
  * 
  * @function fetchChatGPTResponse
- * @param {string} mealOption - The meal option selected by the user (e.g., Chicken, Fish, Vegan, etc.)
+ * @param {string} mealOption - The meal option selected by the user (e.g., Gluten-Free, Vegetarian, Vegan, etc.)
+ * @param {string} mealCuisine - The Cuisine option selected by the user (e.g. Italian, Mexican, Chinese, etc.)
+ * @param {string} mealProtein - The Protein option selected by the user (e.g. Chicken, Fish, Beef, etc.)
  * @returns {Object} - The AI-generated recipe data including name, description, and image URL
  * @throws {Error} - If the API request fails
  */
-export const fetchChatGPTResponse = async (mealOption) => {
+export const fetchChatGPTResponse = async (mealProtein, mealOption, mealCuisine) => {
     const openAIKey = process.env.REACT_APP_OPENAI_API_KEY; // OpenAI API key
     const spoonacularKey = process.env.REACT_APP_SPOONACULAR_API_KEY; // Spoonacular API key
 
@@ -21,7 +23,7 @@ export const fetchChatGPTResponse = async (mealOption) => {
                 model: 'gpt-3.5-turbo',
                 messages: [
                     { role: 'system', content: 'You are an expert on recipes and cooking.' },
-                    { role: 'user', content: `Please provide a recipe for ${mealOption} with the following structure: "Recipe Name: [Name] | Description: [Description] | Ingredients: [Ingredients List]"` }
+                    { role: 'user', content: `Please provide a recipe from ${mealCuisine} cuisine with ${mealOption} restriction using ${mealProtein} as protein with the following structure: "Recipe Name: [Name] | Description: [Description] | Ingredients: [Ingredients List]"` }
                 ],
                 max_tokens: 300,
                 temperature: 0.7,
