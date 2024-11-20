@@ -85,7 +85,7 @@ const ParkAIHome = () => {
                             value={protein} 
                             onChange={(e) => setProtein(e.target.value)}
                         >
-                            <option value="Any Protein">--Select Protein--</option>
+                            <option value="Anything">--Select Protein--</option>
                             {["Chicken", "Fish", "Beef"]
                                 .sort()
                                 .map(cuisineOption => <option key={cuisineOption} value={cuisineOption}>{cuisineOption}</option>)}
@@ -115,7 +115,8 @@ const ParkAIHome = () => {
                             <option value="Vegetarian">Vegetarian</option>
                             <option value="Vegan">Vegan</option>
                             <option value="Gluten-Free">Gluten-Free</option>
-                            <option value="Non-Vegetarian">Non-Vegetarian</option>
+                            <option value="Healthy">Healthy</option>
+                            <option value="Very Little Cost">Cheap</option>
                         </select>
                     </div>
                 </div>
