@@ -26,7 +26,7 @@ db.connect((err) => {
 });
 
 // Route to add a new recipe
-app.post('/addRecipe', (req, res) => {
+app.post('/recipes', (req, res) => {
     const { name, description, ingredients, image } = req.body;
 
     // Check if all required fields are provided
@@ -38,6 +38,8 @@ app.post('/addRecipe', (req, res) => {
     db.query(query, [name, description, image, ingredients], (err, results) => {
         if (err) {
             console.error('Error inserting recipe:', err);
+            console.error('Query:', query);
+            console.error('Parameters:', [name, description, image, ingredients]);
             res.status(500).json({ error: 'Failed to add recipe' });
             return;
         }
@@ -45,7 +47,6 @@ app.post('/addRecipe', (req, res) => {
     });
 });
 
-// New Route to get all recipes
 app.get('/recipes', (req, res) => {
     const query = 'SELECT recipe_name AS name, recipe_description AS description, recipe_image AS image, ingredient_list AS ingredients FROM Recipes';
     
