@@ -1,19 +1,19 @@
 /**
  * Renders the ParkSearch component page.
  * @component
- * @module ParkAI
+ * @module MealAI
  * @returns {JSX.Element} The rendered ParkSearch component.
  */
 import React from 'react';
-import ParkAIHome from './ParkAI/Components/ParkAIHome.jsx';
+import ParkAIHome from './MealAI/Components/ParkAIHome.jsx';
 import './Style/parkAI.css';
-function ParkAI(){
+function MealAI(){
     return(
-    <div className='park-ai' >
+    <div className='meal-ai' >
         <ParkAIHome />
         
     </div>
     );
 }
 
-export default ParkAI;
+export default MealAI;
