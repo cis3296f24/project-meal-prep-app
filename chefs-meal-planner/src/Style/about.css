@@ -15,7 +15,7 @@ img {
     position: relative; /* Required for proper pseudo-element placement */
     margin-top: 5.5rem;
     text-align: center;
-    padding: 2rem;
+    padding: 2rem; 
     margin-bottom: 5.5rem;
     border-radius: 10px; /* Optional: keep rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
