@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../../Style/parkAI.css';
 import { fetchChatGPTResponse } from '../Functionality/FetchChatGPT';
 import defaultImage from '../Assets/default_img.jpg';
-
 /**
  * Component for welcoming and explaining the park search
  * functionality to a user.
