@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    background-color: #1c6db9;
+    background-color: #3a4937;
     top: 0;
     width: 100%;
     position:fixed;
@@ -16,7 +16,7 @@
 .nav-bar ul li{
     font-size: 1.5rem;
     &:hover{
-        background-color:#f1ed14
+        background-color:#a67e46
     }
 }
 
@@ -31,7 +31,7 @@
 .nav-bar .header{
 
     &:hover{
-        background-color: #f1ed14;
+        background-color: #3a4937;
     }
 }
 
@@ -46,7 +46,7 @@
     align-items: center;
     justify-content: center;
     &:hover{
-        background-color: #1c6db9;
+        background-color: #3a4937;
     }
 
 }

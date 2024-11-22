@@ -11,132 +11,33 @@ img {
     width: 100%;
 }
 
+/* About Page Styles */
 .about-parent {
-    position: relative; /* Required for proper pseudo-element placement */
     margin-top: 5.5rem;
     text-align: center;
-    padding: 2rem; 
-    margin-bottom: 5.5rem;
-    border-radius: 10px; /* Optional: keep rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
-    overflow: hidden; /* Ensures child elements stay within the parent bounds */
+    padding: 2rem;
+    background-color: #f9f9f9;
 }
 
-.about-parent::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('bgdImg.jpg') no-repeat center center; /* Add background image */
-    background-size: cover; /* Ensure the image covers the entire container */
-    filter: blur(3px); /* Apply the blur effect */
-    z-index: -1; /* Place the pseudo-element behind the content */
-    opacity: 0.7; /* Optional: Adjust opacity for a subtle effect */
-}
-
-/* About Content Styles */
 .about-content {
     padding: 20px;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     color: #333;
     max-width: 800px;
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.8); /* Maintain slight transparency for readability */
-    border-radius: 10px; /* Matches parent border radius */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Emphasize content box */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 .about-content h1 {
-    font-size: 2.5rem; /* Increase the font size */
+    font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #2c3e50; /* Darker shade for better readability */
-    font-family: 'Georgia', serif; /* Elegant serif font */
-    text-align: center; /* Center the heading */
-    text-transform: uppercase; /* Uppercase letters for emphasis */
-    letter-spacing: 0.1rem; /* Add spacing between letters */
-    background: linear-gradient(90deg, #9cff00, #097679, #020024, #00ff31); /* Gradient effect */
-    -webkit-background-clip: text; /* Clip background to text */
-    -webkit-text-fill-color: transparent; /* Make the text fill transparent */
-    padding: 10px;
-}
-
-
-/* Font style for Secret Recipes description */
-.about-content > p {
-    font-family: American Typewriter, serif; /* Elegant and classic serif font */
-    font-size: 1.2rem; /* Slightly larger font size for readability */
-    line-height: 1.8; /* Increase line height for better spacing */
-    color: #444; /* Softer shade for the description text */
-}
-
-.highlight-text {
-    text-align: left;
-    font-family: Palatino; /* Choose your preferred font */
-    font-size: 1.2em; /* Adjust size if needed */
-    margin-top: 10px; /* Add spacing if required */
-    font-weight: bold; /* Makes the text bold */
-    color: #8b4513;
-}
-
-
-/* Peer Review Section */
-.peer-reviews-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 2rem;
-}
-
-.peer-review {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Space between the image and text */
-    text-align: left;
-    flex: 1;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.peer-review-image {
-    flex: 0 0 160px; /* Fixed size for the image */
-    width: 160px;
-    height: 160px; /* Ensure square dimensions */
-    object-fit: cover; /* Ensures image fits within the square without distortion */
-    border-radius: 10px; /* slightly rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.peer-review-text {
-    flex: 1;
-    font-family: fantasy;
-}
-
-.peer-review-text h3 {
-    font-size: 1.5rem;
     color: #333;
-    margin-bottom: 0.5rem;
 }
 
-.peer-review-text p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #555;
-}
-
-
-.rating {
-    margin-top: 0.5rem;
+.about-content p {
     font-size: 1.1rem;
-    color: #FFD700; /* Gold color for stars */
-    letter-spacing: 0.1rem;
-}
-
-/* Additional Styles for Layout and Spacing */
-.peer-reviews-container .peer-review + .peer-review {
-    margin-top: 20px; /* Space between reviews */
+    line-height: 1.6;
+    color: #555;
 }

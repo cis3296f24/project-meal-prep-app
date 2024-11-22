@@ -1,0 +1,185 @@
+
+.park-search{
+    background-image : url("../HomePage/Assets/glacier.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.85;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.park-search-welcome {
+    position:relative;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 100%);
+}
+.park-search-welcome #search-title{
+    position: relative;
+    padding: 5rem;
+    color: black;
+
+}
+.park-search-welcome .search-about{
+    /* put it in a box */
+    padding: 1rem;
+
+    padding-left: 10rem;
+    padding-right: 10rem;
+    /* background-color: rgba(19, 35, 19, 0.9); */
+    color: black;
+    font-size: 2rem;
+
+}
+
+.park-search .activities-list{
+    /* padding-top: 5rem; */
+    margin-top: 5rem;
+}
+
+.park-search .activities-list .activity-dropdown{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.park-search .activities-list .search-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.park-search .activities-list .search-button-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.park-search .activities-list .search-button-grid .search-button {
+    font-size: medium;
+}
+
+.park-search .activities-list .search-button-grid .search-button:hover {
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.activities-list .activity-dropdown {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.activities-list .activity-dropdown .activity-search-button {
+    width: 25%;
+    border-radius: 10px;
+    font-size: larger;
+}
+
+.activities-list .activity-dropdown .activity-search-button:hover {
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+.activities-list .activity-dropdown .basic-multi-select {
+    width: 75%;
+    z-index: 3;
+}
+
+.park-search .activities-list .search-button {
+    width: 10rem;
+    height: 4rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.park-search .return-parks {
+    background-color: rgb(155, 184, 160) !important;
+    border-style: dotted;
+}
+
+.park-search .return-parks .parks-number {
+    padding: 15px 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.park-search .parks{
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 30%; */
+    /*min-width: 500px;*/
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0px;
+}
+
+.park-search .post-card{
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-style: solid;
+    transition: all 100ms ease-out;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.parks .post-card:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.park-search .learn-more-dropdown {
+    position: absolute;
+    top: 10px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+    display: block;
+    margin: 0 auto;
+}
+
+.park-search .learn-more-dropdown .learn-more-name {
+    font-weight: bold;
+}
+  
+.learn-more-option {
+    height: 0%;
+    left: 0%;
+    opacity: 0;
+    position: absolute;
+    transition: all .5s ease;
+    width: 75%;
+  }
+  
+  .post-card:hover .learn-more-dropdown .learn-more-option {
+    height: 50%;
+    opacity: 1;
+  }
+
+  .learn-more-dropdown .learn-more-button:hover {
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .learn-more-button {
+    width: 100%;
+    height: 100%;
+    font-family: "Times New Roman", Times, serif;
+    font-size: larger;
+  }
+  
+
+
+.park-search .description {
+    text-align: center;
+    padding: 0px 10px;    
+}

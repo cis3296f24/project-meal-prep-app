@@ -1,0 +1,183 @@
+body{
+    overflow-x: hidden;
+}
+
+.park-plan {
+    background-image : url("../HomePage/Assets/ParkPlanningPicture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.85;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.park-plan-welcome {
+    position:relative;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 100%);
+}
+
+.park-plan-welcome #plan-title {
+    position: relative;
+    padding: 5rem;
+    color: black;
+    text-align: center;
+}
+
+.park-plan-welcome #plan-description {
+    text-align: center;
+    /* put it in a box */
+    padding: 1rem;
+
+    padding-left: 10rem;
+    padding-right: 10rem;
+    /* background-color: rgba(19, 35, 19, 0.9); */
+    color: black;
+    font-size: 2rem;
+}
+
+.planning-dropdowns {
+    display: flex;
+}
+
+.plan-parks-list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.plan-activities-list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.plan-calendar #date-range-title {
+    text-align: center;
+}
+
+.plan-calendar {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.react-calendar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plan-search-button-container {
+    width: 70%;
+    margin-left: 39%;
+    margin-right: auto;
+}
+
+.plan-search-button {
+    font-size: larger;
+    height: 4rem;
+    border-radius: 10px;
+    width: 30%;
+    font-family: "Times New Roman", Times, serif;
+    margin-bottom: 2%;
+}
+
+.plan-search-button-container .plan-search-button:hover {
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dates-container .individual-date-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 70%;
+    display: flex;
+    gap: 1rem;
+}
+
+.dates-container .individual-date-container .date-holder {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 20%;
+    height: 10%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: larger;
+}
+
+.dates-container .individual-date-container .plan-schedule-activities {
+    padding-left: 3px;
+    padding-top: 1px;
+    margin-left: 3%;
+    font-size: larger;
+}
+
+.individual-date-container .date-holder #plan-see-date {
+    text-align: center;
+}
+
+.individual-date-container .plan-schedule-activities .plan-learn-more-button {
+    width: 75%;
+    height: 50px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: larger;
+}
+
+.individual-date-container .plan-schedule-activities .plan-learn-more-button:hover {
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.individual-date-container .plan-schedule-activities .plan-visit-place {
+    margin-bottom: 2%;
+}
+
+.individual-date-container .plan-schedule-activities .plan-visit-people {
+    margin-bottom: 2%;
+}
+
+#schedule-title {
+    background-color: rgba(255, 255, 255);
+    text-align: center;
+}
+
+.plan-activity-title {
+    margin-bottom: 3%;
+    width: 100%;
+    font-weight: bold;
+}
+
+.plan-description {
+    padding-bottom:  2rem;
+    padding-right: 2rem;
+}
+
+.weather-image {
+    width: 75px;
+    height: 75px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#weather-text {
+    text-align: center;
+    font-weight: bold;
+}
+
+.weather {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}

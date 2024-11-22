@@ -1,6 +1,6 @@
 .footer {
-    border-top: 1px solid #3a4937; /* Adds a top border */
-    color: black;
+    background-color: #3a4937;
+    color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -8,7 +8,10 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     width: 100%;
-    position: static; /* Removes the fixed positioning */
+    position: fixed; /* Makes the footer fixed at the bottom */
+    bottom: 0; /* Positions it at the very bottom of the viewport */
+    left: 0;
+    z-index: 1000; /* Ensures the footer stays on top of other content */
 }
 
 .footer img {
@@ -17,7 +20,7 @@
     margin: 0px 5px;
 }
 
-/* Remove additional padding for non-fixed footer */
+/* To prevent content from being hidden behind the footer */
 body {
-    padding-bottom: 0; /* No longer needed for static footer */
+    padding-bottom: 50px; /* Adjust this value to match the height of your footer */
 }

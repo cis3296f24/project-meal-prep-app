@@ -45,9 +45,9 @@ app.post('/addRecipe', (req, res) => {
     });
 });
 
-// Updated Route to get all recipes with IDs
+// New Route to get all recipes
 app.get('/recipes', (req, res) => {
-    const query = 'SELECT id, recipe_name AS name, recipe_description AS description, recipe_image AS image, ingredient_list AS ingredients FROM Recipes';
+    const query = 'SELECT recipe_name AS name, recipe_description AS description, recipe_image AS image, ingredient_list AS ingredients FROM Recipes';
     
     db.query(query, (err, results) => {
         if (err) {

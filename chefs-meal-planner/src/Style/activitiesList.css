@@ -1,0 +1,101 @@
+/* Responds to the ActivitiesList.jsx component
+body {
+    background-image: url("../HomePage/Assets/glacier.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#search-component{
+   
+    background-color: rgb(155, 184, 160);
+    background-image: url("../HomePage/Assets/glacier.png");
+    
+
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: rgb(19, 35, 19);
+   
+}
+
+#search-title{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 10rem;
+    background-color: rgba(19, 35, 19, 0.9);
+    color: white;
+}
+
+button{
+    width: 50%;
+}
+
+.activitiesList{
+    padding: 10px 10px 10px 10px;
+   
+    background-color: rgba(155, 184, 160, 0.1);
+
+    display: block;
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.activitiesList .activities{
+    margin-left: auto;
+    margin-right: auto;
+   
+    border-style: dotted;
+    
+    background-color: rgba(155, 184, 160, 1);
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.activitiesList {
+    color: black;
+}
+
+.searchButton {
+    border-color: rgb(0, 0, 0);
+    background-color: rgba(155, 184, 160, 0.90);
+    color: black;
+    font-size: 1.5rem;
+    height: 45px;
+    width: 20%;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.activityDropdown {
+    width: 70%;
+    padding: 10px 10px 10px 10px;
+}
+
+.dropdownSearchWrapper{
+    display:flex;
+    justify-content: space-between;
+}
+
+.search-about{
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(19, 35, 19, 0.9);
+}
+
+p, .search-about{
+    padding: 0.001rem 1rem 1rem 1rem;
+}
+
+.search-button-wrapper{
+    justify-content: space-between;
+}
+
+.search-button{
+    font-size: 1.5rem;
+    border-radius: 15px;
+
+
+} */

@@ -8,16 +8,16 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../Style/navbar.css'
-import chefHat from './cheficon.png'
+import tree from './tree.png'
 const Navbar = () => {
     return (
         <nav className="nav-bar">
             <ul>
                 <li className = "header">
-                    <NavLink to="/">My Secret Recipes</NavLink>
+                    <NavLink to="/">Secret Recipes</NavLink>
                 </li>
                 <li className = "logo">
-                    <img src = {chefHat} alt = "chefHat"/>
+                    <img src = {tree} alt = "tree"/>
                 </li>
                 <li>
                     <NavLink to="/">Home</NavLink>
