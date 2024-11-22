@@ -8,22 +8,23 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../Style/navbar.css'
-import tree from './tree.png'
+import chefHat from './cheficon.png'
 const Navbar = () => {
     return (
         <nav className="nav-bar">
             <ul>
                 <li className = "header">
-                    <NavLink to="/">Secret Recipes</NavLink>
+                    <NavLink to="/">My Secret Recipes</NavLink>
                 </li>
                 <li className = "logo">
-                    <img src = {tree} alt = "tree"/>
+                    <img src = {chefHat} alt = "chefHat"/>
                 </li>
                 <li>
                     <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/ParkInfo" reloadDocument>About</NavLink>
+                    <NavLink to="/About
+                    " reloadDocument>About</NavLink>
                 </li>
                 <li>
                     <NavLink to="/MealPlan">Meal Plan</NavLink>

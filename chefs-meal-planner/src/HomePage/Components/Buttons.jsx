@@ -6,7 +6,7 @@ const Buttons = () => {
         <div className="homepage-button-wrapper">
             <div className="button-container">
                 <p>Discover New Recipes</p> 
-                <Link to="/ParkAI">
+                <Link to="/MealAI">
                     <button className="homepage-button">Get Recipes</button>
                 </Link>                    
             </div>              
