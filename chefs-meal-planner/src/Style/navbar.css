@@ -16,7 +16,7 @@
 .nav-bar ul li{
     font-size: 1.5rem;
     &:hover{
-        background-color:#f1ed14
+        background-color:#ff7043;
     }
 }
 
@@ -31,7 +31,7 @@
 .nav-bar .header{
 
     &:hover{
-        background-color: #f1ed14;
+        background-color: #ff7043;
     }
 }
 

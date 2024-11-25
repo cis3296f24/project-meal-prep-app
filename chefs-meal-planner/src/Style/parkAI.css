@@ -1,173 +1,237 @@
 /* Main styling for the ParkAI component */
-.park-ai {
-    background-color: #f4f9f4; /* Light background color */
-    color: #333; /* Dark gray text */
-    font-family: 'Inter', sans-serif; /* Modern, clean sans-serif font */
-    padding: 3rem 1rem;
+.meal-ai {
+    background-image: url('recipe.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: left center; /* Adjusted to move image slightly to the left */
+    background-attachment: fixed;
+    background-color: #f0f0f0; /* Soft light background color */
+    color: #333;
+    font-family: 'Lora', serif; /* Elegant serif font */
+    padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end; /* Align all content to the right */
+    text-align: center;
+    min-height: 100vh;
+    justify-content: flex-start; /* Keep the content aligned to the top */
 }
 
 /* Title styling */
-.park-ai #ai-title {
-    text-align: center;
-    font-size: 2rem; /* Smaller title font size */
-    color: #4caf50; /* Soft green for consistency */
-    margin-bottom: 1rem;
-    font-family: 'Roboto', sans-serif; /* Clean sans-serif font for the title */
+.meal-ai #ai-title {
+    font-size: 2.5rem; /* Bold and prominent size */
+    color: #ffffff; /* White text for contrast */
+    text-transform: uppercase; /* Strong, attention-grabbing text */
+    text-align: center; /* Center-align the title */
+    font-family: 'Otomanopee One'; /* Modern and clean sans-serif font */
+    font-weight: 900; /* Extra bold text */
+    background: linear-gradient(45deg, #d64161, #ff3d00, #c83349, #ff6f69); /* Dynamic gradient background */
+    -webkit-background-clip: text; /* Clip gradient to text */
+    -webkit-text-fill-color: transparent; /* Make background visible */
+    letter-spacing: 2px; /* Add spacing between letters */
+    margin: 2.5rem auto; /* Adjusted spacing around the title */
 }
 
+/* Shadow effect for text */
+.meal-ai #ai-title:hover {
+    text-shadow: 0 4px 15px rgba(255, 99, 71, 0.8); /* Glow effect on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth hover transition */
+}
+
+
 /* Recipe container styling */
-.park-ai .recipe-container {
+.meal-ai .recipe-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: white; /* Solid white background */
+    background: #f7f7f7; /* Softer background color for recipe container */
     padding: 2rem;
     color: black;
-    font-size: 1rem; /* Smaller font size for better readability */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    width: 90%;
-    max-width: 600px;
+    font-size: 1.125rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    width: 80%;
+    max-width: 700px;
+    margin-top: 2rem;
 }
 
 /* Recipe name styling */
-.park-ai .recipe-container h2 {
-    font-size: 1.5rem; /* Smaller font size for the recipe name */
+.meal-ai .recipe-container h2 {
+    font-size: 2rem;
     color: #333;
-    margin-top: 2rem; /* Space between name and image */
-    font-weight: 600; /* Bold font for the name */
-    margin-bottom: 1rem; /* Space after recipe name to create a break before description */
+    margin-top: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
 }
 
 /* Recipe description styling */
-.park-ai .recipe-container p {
-    font-size: 1.125rem; /* Slightly smaller font size for better readability */
-    color: #555;
-    line-height: 1.6;
-    margin-top: 1.5rem; /* More space between description and name */
-    text-align: center; /* Center-align the text */
-    font-family: 'Merriweather', serif; /* Consistent font for description */
+.meal-ai .recipe-container p {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.8;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-family: 'Merriweather', serif;
 }
 
 /* Recipe image styling */
-.park-ai .recipe-image {
+.meal-ai .recipe-image {
     width: 100%;
-    max-width: 400px; /* Make image smaller */
+    max-width: 450px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Button styling */
-.park-ai .ask-ai-button {
-    margin-top: 1.5rem;
-    padding: 0.75rem 2rem;
-    font-size: 1.25rem;
+/* Save Button and Fetch New Recipe Button Styling */
+.meal-ai .save-button,
+.meal-ai .fetch-recipe-button {
+    margin-top: 1.8rem;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
     border: none;
-    border-radius: 8px;
-    background-color: #4caf50; /* Green button like homepage */
-    color: white;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 50px;
+    background-color: #ff7043; /* Bright orange background */
+    color: white; /* White text for contrast */
+    font-family: 'Lora', serif; /* Elegant serif font */
+    text-transform: uppercase; /* Uppercase text for bold emphasis */
+    font-weight: bold; /* Bold font */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover and click effects */
+    cursor: pointer; /* Pointer cursor on hover */
     display: block;
     margin-left: auto;
     margin-right: auto;
-    min-width: 300px; /* Minimum width for consistency */
+    min-width: 250px; /* Consistent button width */
 }
 
-.park-ai .ask-ai-button:hover {
-    background-color: #388e3c;
-    cursor: pointer;
-    transform: scale(1.05);
-    font-weight: bold;
+/* Hover Effect */
+.meal-ai .save-button:hover,
+.meal-ai .fetch-recipe-button:hover {
+    background-color: #e64a19; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .park-ai {
-        padding: 2rem 1rem;
-    }
-
-    .park-ai #ai-title {
-        font-size: 2rem; /* Smaller title on small screens */
-    }
-
-    .park-ai .recipe-container {
-        width: 100%;
-        padding: 1.5rem;
-    }
-
-    .park-ai .recipe-container h2 {
-        font-size: 1.25rem; /* Smaller font size for the name on small screens */
-    }
-
-    .park-ai .recipe-container p {
-        font-size: 1rem; /* Smaller font size for description */
-    }
-
-    .park-ai .recipe-image {
-        max-width: 90%;
-    }
-
-    .park-ai .ask-ai-button {
-        font-size: 1.1rem;
-        min-width: 250px;
-    }
+/* Focus Effect */
+.meal-ai .save-button:focus,
+.meal-ai .fetch-recipe-button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px rgba(230, 74, 25, 0.8); /* Add focus shadow for accessibility */
 }
 
-.save-button {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+/* Add Separate Class for Fetch Recipe Button */
+.meal-ai .fetch-recipe-button {
+    background-color: #ff7043; /* Orange fill for fetch button as well */
+    margin-top: 2rem; /* Additional spacing for layout */
 }
 
-.save-button:hover {
-    background-color: #4cae4c;
+
+/* Filters Section Container */
+.filters-container {
+    background-color: #f5f5f5; /* Soft light gray background */
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
 }
 
+/* Filters Section */
 .filters {
     display: flex;
-    justify-content: center;
-    gap: 20px; 
-    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
     flex-wrap: wrap;
-    padding: 10px;
+    align-items: center;
 }
 
+/* Filter container (individual filter options) */
 .filters div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
+/* Label styling */
 .filters label {
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #333;
+    text-transform: capitalize;
+    margin-bottom: 14px;
 }
 
+/* Select dropdown styling */
 .filters select {
-    padding: 8px;
-    font-size: 1rem;
+    padding: 14px;
+    font-size: 1.15rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 180px;
+    border-radius: 10px;
+    background-color: #eaeaea; /* Slightly darker than background */
+    color: #333;
+    width: 220px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
+/* Option Styling */
+.filters select option {
+    padding: 14px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Hover effect for select dropdown */
+.filters select:hover {
+    background-color: #ffffff;
+    border-color: #ff7043;
+}
+
+/* Focus effect for select dropdown */
+.filters select:focus {
+    outline: none;
+    border-color: #ff7043;
+    background-color: #ffffff;
+}
+
+/* Option Hover effect */
+.filters select option:hover {
+    background-color: #f0f0f0;
+    color: #ff7043;
+}
+
+/* Responsive Styles for Filters */
 @media (max-width: 768px) {
+    .meal-ai {
+        padding: 1.5rem;
+    }
+
+    .meal-ai #ai-title {
+        font-size: 2.2rem;
+        padding: 1.2rem 2.5rem;
+    }
+
+    .meal-ai .recipe-container {
+        padding: 1.5rem;
+    }
+
+    .filters-container {
+        padding: 20px;
+        background-color: #ececec; /* A lighter gray for mobile */
+    }
+
     .filters {
-        flex-direction: column; 
-        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
     }
 
     .filters select {
-        width: 100%; 
+        width: 100%;
     }
 }

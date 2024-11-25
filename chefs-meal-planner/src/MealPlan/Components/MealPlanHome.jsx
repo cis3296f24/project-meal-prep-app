@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../Style/mealPlan.css';
-import { fetchDBResponse } from '../Functionality/FetchDB';
-import axios from 'axios';
+import { fetchDBResponse, addRecipeToDB } from '../Functionality/FetchDB';
+
+
 /**
- * Component for welcoming and explaining the park search
- * functionality to a user.
+ * Component for managing meal plans, including viewing, selecting,
+ * adding recipes, and proceeding to checkout.
  * 
  * @component
- * @module MeakPlanHome
+ * @module MealPlanHome
  * @memberof MealPlan
- * @returns {JSX.Element} Park search welcome header
+ * @returns {JSX.Element} Meal plan management UI
  */
 const MealPlanHome = () => {
     const [recipes, setRecipes] = useState([]);
@@ -20,11 +21,12 @@ const MealPlanHome = () => {
     const [showForm, setShowForm] = useState(false);
     const navigate = useNavigate();
 
+    // Fetching meals from the server
     const fetchMeals = async () => {
         setIsLoading(true);
         try {
             const response = await fetchDBResponse();
-            const sortedRecipes = response.sort((a, b) => b.id - a.id); // Sort recipes by ID (descending)
+            const sortedRecipes = response.sort((a, b) => b.id - a.id); // Sort by ID (descending)
             setRecipes(sortedRecipes);
         } catch (error) {
             console.error('Error fetching recipes:', error);
@@ -36,29 +38,27 @@ const MealPlanHome = () => {
     useEffect(() => {
         fetchMeals(); // Fetch meals when the component mounts
     }, []);
+
+    // Handling form input changes for new recipe
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setNewRecipe((prevRecipe) => ({ ...prevRecipe, [name]: value }));
     };
 
+    // Adding new recipe to the database
     const handleAddRecipe = async () => {
-        console.log('Adding recipe:', newRecipe); // Log the recipe details
         try {
-            // Send the recipe to the backend
-            await axios.post('http://localhost:5000/recipes', newRecipe);
-
-            // Reset the form and hide it
+            await addRecipeToDB(newRecipe);
             setNewRecipe({ name: '', description: '', ingredients: '', image: '' });
             setShowForm(false);
-
-            // Fetch the updated list of recipes
-            fetchMeals(); // Call fetchMeals here after successfully adding a recipe
+            fetchMeals();
         } catch (error) {
-            console.error('Error adding recipe:', error.response?.data || error.message);
-            alert('Failed to add recipe. Check the console for details.');
+            console.error(error.message);
+            alert('Failed to add recipe. Please check the details and try again.');
         }
     };
 
+    // Handling recipe selection for checkout
     const handleCheckboxChange = (index) => {
         setSelectedRecipes((prevSelectedRecipes) => ({
             ...prevSelectedRecipes,
@@ -66,9 +66,10 @@ const MealPlanHome = () => {
         }));
     };
 
+    // Proceeding to checkout with selected recipes
     const handleCheckout = () => {
         const selected = recipes.filter((_, index) => selectedRecipes[index]);
-        const selectedIngredients = selected.map((recipe) => recipe.ingredients);
+        const selectedIngredients = selected.map((recipe) => recipe.ingredients.split(', '));
         if (selectedIngredients.length > 0) {
             navigate('/Checkout', { state: { ingredients: selectedIngredients } });
         } else {
@@ -79,14 +80,16 @@ const MealPlanHome = () => {
     return (
         <div className="meal-plan">
             <center>
-                <h1 id="ai-title">Choose Your Meals</h1>
-                <button onClick={handleCheckout} className="checkout-button" disabled={isLoading}>
-                    Checkout
-                </button>
-                <button onClick={() => setShowForm((prev) => !prev)} className="add-recipe-button">
-                    +
-                </button>
-
+                <div className="button-container-meal">
+                    <h1 id="ai-title">Choose Your Meals</h1>
+                    <button onClick={handleCheckout} className="checkout-button" disabled={isLoading}>
+                        Checkout
+                    </button>
+                    <button onClick={() => setShowForm((prev) => !prev)} className="add-recipe-button">
+                        +
+                    </button>
+                </div>
+                {/* Add Recipe Form */}
                 {showForm && (
                     <div className="add-recipe-form">
                         <input
@@ -121,6 +124,7 @@ const MealPlanHome = () => {
                     </div>
                 )}
 
+                {/* Loading or displaying the recipes */}
                 {isLoading ? (
                     <p>Loading recipes...</p>
                 ) : (
@@ -129,10 +133,10 @@ const MealPlanHome = () => {
                             <thead>
                                 <tr>
                                     <th>Select</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Ingredients</th>
-                                    <th>Image</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -145,9 +149,6 @@ const MealPlanHome = () => {
                                                 onChange={() => handleCheckboxChange(index)}
                                             />
                                         </td>
-                                        <td>{recipe.name}</td>
-                                        <td>{recipe.description}</td>
-                                        <td>{recipe.ingredients}</td>
                                         <td>
                                             {recipe.image ? (
                                                 <img src={recipe.image} alt={recipe.name} className="recipe-image" />
@@ -155,10 +156,31 @@ const MealPlanHome = () => {
                                                 'No Image'
                                             )}
                                         </td>
+                                        <td className="recipe-name">{recipe.name}</td>
+                                        <td>{recipe.description}</td>
+                                        <td>
+                                            {/* Ingredients display */}
+                                            <ul className="ingredients-list">
+                                                {recipe.ingredients.split(',').map((ingredient, idx) => {
+                                                    const [item, details] = ingredient.split('-').map(part => part.trim());
+                                                    return (
+                                                        <li key={idx} className="ingredient-item">
+                                                            {item && <strong>{item}</strong>}
+                                                            {details && (
+                                                                <div style={{ marginLeft: '16px' }}>
+                                                                    {details}
+                                                                </div>
+                                                            )}
+                                                        </li>
+                                                    );
+                                                })}
+                                            </ul>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+
                     </div>
                 )}
             </center>
