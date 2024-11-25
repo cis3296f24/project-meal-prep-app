@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../Style/mealPlan.css';
 import { fetchDBResponse, addRecipeToDB } from '../Functionality/FetchDB';
-import axios from 'axios';
+
 
 /**
  * Component for managing meal plans, including viewing, selecting,
