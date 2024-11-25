@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { fetchShoppingList } from '../../MealAI/Functionality/FetchShoppingList';
-import '../../Style/mealPlan.css';
+import { fetchShoppingList } from '../Functionality/FetchShoppingList';
+import '../../Style/mealPlan.css'; // Ensure this includes the updated checkout styles
 
 /**
  * Component to generate and display a shopping list based on selected meal ingredients.
@@ -36,9 +36,10 @@ const CheckoutHome = () => {
     }, [ingredients]);
 
     return (
-        <div className='checkout'>
-            <h1>Checkout</h1>
-            <h2>Your Shopping List for Two People</h2>
+        <div className="checkout">
+            {/* Title with added styling */}
+            <h1 id="checkout-title">Checkout</h1>
+            <h2 id="checkout-title">Your Shopping List for Two People</h2>
             {loading ? (
                 <p>Loading your custom shopping list...</p>
             ) : (

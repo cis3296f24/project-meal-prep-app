@@ -27,7 +27,7 @@ const Navbar = () => {
                     " reloadDocument>About</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/MealPlan">Meal Plan</NavLink>
+                    <NavLink to="/MealPlan">My Recipes</NavLink>
                 </li>
             </ul>
         </nav>
