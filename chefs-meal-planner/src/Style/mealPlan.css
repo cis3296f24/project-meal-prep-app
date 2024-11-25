@@ -1,39 +1,70 @@
 /* Main styling for the MealPlan component */
+
+
 .meal-plan {
-    background-color: #f4f9f4; /* Light background color */
-    color: #333; /* Dark gray text */
-    font-family: 'Inter', sans-serif; /* Modern, clean sans-serif font */
-    padding: 3rem 1rem;
+    background: url('recipes.jpg') no-repeat center center fixed; /* Set background image */
+    background-size: cover; /* Ensure the image always covers the entire container */
+    background-color: #f4f9f4; /* Add a fallback background color */
+    color: #333; /* Dark gray text for contrast */
+    font-family: 'Arial', sans-serif;  /* Modern, clean sans-serif font */
+    padding: 3rem 1rem; /* Internal padding for spacing */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    min-height: 100vh; /* Ensure the container takes up the full viewport height */
+    min-width: 100%; /* Ensure the container spans the full viewport width */
+    box-sizing: border-box; /* Include padding in width/height calculations */
+    position: relative; /* Necessary for pseudo-elements or overlays */
+    overflow: hidden; /* Prevent content overflow */
 }
 
 /* Title styling */
 #ai-title {
-    text-align: center;
-    font-size: 2rem; /* Title font size */
-    color: #4caf50; /* Soft green for consistency */
-    margin-bottom: 1rem;
-    font-family: 'Roboto', sans-serif; /* Clean sans-serif font for the title */
+    font-size: 2.5rem; /* Bold and prominent size */
+    color: #ffffff; /* White text for contrast */
+    text-transform: uppercase; /* Strong, attention-grabbing text */
+    text-align: center; /* Center-align the title */
+    font-family: 'Otomanopee One'; /* Modern and clean sans-serif font */
+    font-weight: 900; /* Extra bold text */
+    background: linear-gradient(45deg, #d64161, #ff3d00, #c83349, #ff6f69); /* Dynamic gradient background */
+    -webkit-background-clip: text; /* Clip gradient to text */
+    -webkit-text-fill-color: transparent; /* Make background visible */
+    letter-spacing: 2px; /* Add spacing between letters */
+    margin: 2.5rem auto; /* Adjusted spacing around the title */
+}
+
+/* Shadow effect for text */
+.meal-plan #ai-title:hover {
+    text-shadow: 0 4px 15px rgba(255, 99, 71, 0.8); /* Glow effect on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth hover transition */
 }
 
 /* Checkout Button styling */
 .checkout-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
+    margin-top: 1.8rem;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 1rem 0;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 50px;
+    background-color: #ff7043; /* Bright orange background */
+    color: white; /* White text for contrast */
+    font-family: 'Lora', serif; /* Elegant serif font */
+    text-transform: uppercase; /* Uppercase text for bold emphasis */
+    font-weight: bold; /* Bold font */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover and click effects */
+    cursor: pointer; /* Pointer cursor on hover */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 250px; /* Consistent button width */
 }
 
 .checkout-button:hover {
-    background-color: #388e3c;
-    transform: scale(1.05);
+    background-color: #e64a19; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Recipe container styling */
@@ -42,89 +73,236 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: white; /* Solid white background */
+    background: #ffffff; /* Solid white background */
     padding: 2rem;
-    color: black;
-    font-size: 1rem; /* Font size for readability */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    width: 90%;
-    max-width: 600px;
+    color: #4a4a4a;
+    font-size: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* Light shadow for a lifted effect */
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Ingredients list styling */
+.ingredients-list {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif; /* Consistent font */
+    padding-left: 1.5rem; /* Indentation for bullets */
+}
+
+/* Ingredients list styling */
+.ingredients-list {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.6;
+    font-family: 'Times New Roman'; /* Consistent font */
+    padding-left: 1.5rem; /* Indentation for bullets */
+    list-style-type: disc; /* Standard bullet points */
+}
+
+.ingredients-list li {
+    margin-bottom: 0.5rem; /* Space between items */
 }
 
 /* Table container styling */
 .table-container {
     width: 100%;
-    overflow-x: auto; /* Enables horizontal scrolling for smaller screens */
+    overflow-x: auto;
     margin-top: 1.5rem;
+    border: 1px solid #f8d7ba;
+    border-radius: 10px;
+    background: white;
 }
 
 /* Table styling */
 .recipe-table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.95rem;
+    color: #555555;
+    text-align: left; /* Ensure all content aligns to the left */
 }
 
 .recipe-table th,
 .recipe-table td {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    text-align: left;
+    padding: 0.8rem;
+    border: 1px solid #f8d7ba;
+    text-align: left; /* Align content to the left */
+    vertical-align: top; /* Align content to the top */
 }
 
-/* Recipe image styling within table */
-.recipe-image {
-    max-width: 100px;
-    height: auto;
-    border-radius: 5px;
+.recipe-table th {
+    background-color: #fff4e6;
+    font-weight: bold; /* Bold for table headers */
+    color: #ff6f00; /* Orange text for headers */
+    vertical-align: top; /* Ensure headers align to the top */
+}
+
+.recipe-table td.recipe-name {
+    font-weight: bold; /* Make the text bold */
+    color: #003366; /* Dark blue font color */
+    font-size: 1rem; /* Adjust font size for better visibility */
 }
 
 /* Recipe name styling */
 .recipe-container h2 {
-    font-size: 1.5rem; /* Font size for the recipe name */
-    color: #333;
-    margin-top: 2rem; /* Space between name and image */
-    font-weight: 600; /* Bold font for the name */
-    margin-bottom: 1rem; /* Space after recipe name */
+    font-size: 1.8rem;
+    color: #333333;
+    margin-bottom: 1rem;
+    font-weight: bold; /* Bold for recipe name */
+    text-transform: none;
+    letter-spacing: 1px;
+    font-family: 'Georgia', serif;
 }
 
 /* Recipe description styling */
 .recipe-container p {
-    font-size: 1.125rem; /* Font size for readability */
-    color: #555;
+    font-size: 1rem;
+    color: #555555;
     line-height: 1.6;
-    margin-top: 1.5rem; /* Space between description and name */
-    text-align: center; /* Center-align the text */
-    font-family: 'Merriweather', serif; /* Font for description */
+    text-align: justify; /* Improved readability */
+    font-family: 'Georgia', serif; /* Consistent font */
 }
 
-/* Recipe image styling within recipe container */
+/* Recipe image styling */
 .recipe-container .recipe-image {
     width: 100%;
-    max-width: 400px; /* Image size */
+    max-width: 500px;
     height: auto;
-    border-radius: 10px;
-    margin-top: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-top: 1.5rem;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Save Button styling */
 .save-button {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 20px;
+    background-color: #ff6f00; /* Bright orange for consistency */
+    color: #ffffff;
+    padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: normal; /* Removed bold */
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .save-button:hover {
-    background-color: #4cae4c;
+    background-color: #e65b00; /* Darker orange on hover */
+    transform: translateY(-2px);
+}
+.button-container-meal {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding: 10px;
+
+  
+    max-width: 500px;
+    margin: 0 auto; /* Horizontally center the container */
+    background-color: rgba(255, 255, 255, 0.908); /* Maintain slight transparency for readability */
+    border-radius: 10px; /* Matches parent border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Emphasize content box */
+    text-align: center; /* Center text inside */
+}
+
+/* Add Recipe Button styling */
+.add-recipe-button {
+    background-color: #10bad4;; /* Bright yellow for attention */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block; /* Ensures the button behaves as a block-level element */
+    text-align: center;
+}
+
+.add-recipe-button:hover {
+    background-color: #1c6db9; /* Slightly darker yellow on hover */
     transform: scale(1.05);
     font-weight: bold;
 }
+
+/* Styling for the Add Recipe Form */
+.add-recipe-form {
+    background-color: white; /* Solid white background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 1.5rem 2rem; /* Spacing inside the form */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 400px; /* Limit the width */
+    width: 90%; /* Adjust for smaller screens */
+    margin: 1rem auto; /* Center horizontally and add spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Align children to stretch */
+    gap: 1rem; /* Space between form fields */
+}
+
+/* Input fields in the form */
+.add-recipe-form input {
+    padding: 10px; /* Spacing inside the input */
+    font-size: 1rem; /* Make text readable */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    width: 100%; /* Stretch to fill the form container */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+}
+
+/* Input fields focus effect */
+.add-recipe-form input:focus {
+    outline: none;
+    border-color: #4caf50; /* Green border on focus */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Glow effect */
+}
+
+/* Add Recipe button in the form */
+.add-recipe-form button {
+    background-color: #10bad4; /* Consistent green color */
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Match the width of input fields */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+}
+
+.add-recipe-form button:hover {
+    background-color: #1c6db9; /* Darker green on hover */
+    transform: scale(1.05);
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .add-recipe-form {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .add-recipe-form input {
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+
+    .add-recipe-form button {
+        font-size: 0.9rem; /* Slightly smaller button size */
+    }
+}
+
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -133,7 +311,7 @@
     }
 
     #ai-title {
-        font-size: 1.8rem; /* Adjusted title font size for small screens */
+        font-size: 2rem;
     }
 
     .recipe-container {
@@ -142,29 +320,31 @@
     }
 
     .recipe-container h2 {
-        font-size: 1.25rem; /* Smaller font size for recipe name */
+        font-size: 1.5rem;
     }
 
     .recipe-container p {
-        font-size: 1rem; /* Smaller font size for description */
-    }
-
-    .table-container {
-        padding: 1rem;
+        font-size: 0.95rem;
     }
 
     .recipe-table th,
     .recipe-table td {
         padding: 0.5rem;
-        font-size: 0.9rem; /* Adjusted font size for table content */
+        font-size: 0.9rem;
     }
 
     .recipe-image {
-        max-width: 80px;
+        max-width: 80%;
     }
 
-    .save-button {
-        font-size: 1.1rem;
-        min-width: 250px;
+    .save-button,
+    .checkout-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .ingredients-list {
+        font-size: 0.95rem;
+        padding-left: 1rem;
     }
 }
