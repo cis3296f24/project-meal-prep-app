@@ -13,11 +13,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <span>
-        <p>Exploring National Parks</p>
-        <img
-          src="https://web.archive.org/web/20091027005003im_/http://it.geocities.com/aniellobarra/Img/Clip/Animated/tree.gif"
-          alt=""
-        />
+        <p>©2024 All Rights Reserved.</p>
       </span>
     </div>
   );

@@ -1,31 +1,52 @@
 /* Main container styling for the homepage */
 .home-page {
-    background-color: #f4f9f4; /* Light background color */
+    background-image: url('homePage.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensure the image covers the entire page */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the image fixed during scrolling */
     color: #333; /* Dark gray text for readability */
-    font-family: Arial, sans-serif;
+    font-family: 'Otomanopee One'; /* Modern and clean font */
     padding: 3rem 1rem;
+    min-height: 100vh; /* Ensure the page covers full viewport height */
+}
+
+/* Add a slight overlay effect for text readability */
+.home-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    z-index: -1; /* Keep it behind the content */
 }
 
 /* Welcome section styling */
 .welcome {
     text-align: center;
     padding: 2rem;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
     margin-bottom: 2rem;
+    max-width: 800px; /* Constrain the width for readability */
+    margin: 0 auto; /* Center align the section */
 }
 
 .welcome-title {
     font-size: 3rem;
-    color: #4caf50; /* Soft green for freshness */
+    color: #ff7043; /* Vibrant orange for emphasis */
     margin-bottom: 1rem;
+    text-transform: uppercase; /* Add emphasis through uppercase text */
+    font-weight: bold;
 }
 
 .welcome-text {
     font-size: 1.25rem;
-    line-height: 1.6;
-    color: #666;
+    line-height: 1.8; /* Improve line spacing for readability */
+    color: #333;
+    margin-top: 1rem;
 }
 
 /* Button wrapper styling for side-by-side layout */
@@ -43,27 +64,45 @@
 
 /* Button container paragraph styling */
 .button-container p {
-    font-size: 1.25rem;
-    color: #4caf50;
+    font-size: 1.5rem;
+    color: #ff7043; /* Match the theme color */
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
-/* Button styling with minimum width */
+/* Button styling with hover effect */
 .homepage-button-wrapper .homepage-button {
-    background-color: #4caf50;
+    background-color: #ff7043;
     color: #ffffff;
     font-size: 1.25rem;
     padding: 0.75rem 2rem;
     border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50px; /* Rounded buttons */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
-    min-width: 300px; /* Minimum width for consistency */
+    min-width: 250px; /* Consistent button width */
+    text-transform: uppercase; /* Emphasize text */
+    font-weight: bold;
 }
 
 .homepage-button-wrapper .homepage-button:hover {
-    background-color: #388e3c;
+    background-color: #d84315; /* Darker orange on hover */
     cursor: pointer;
-    transform: scale(1.05);
-    font-weight: bold;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .homepage-button-wrapper {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 1rem; /* Adjust spacing */
+    }
+
+    .welcome-title {
+        font-size: 2.5rem; /* Smaller font size for smaller screens */
+    }
+
+    .welcome-text {
+        font-size: 1.1rem; /* Adjust text size */
+    }
 }
