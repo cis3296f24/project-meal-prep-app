@@ -85,16 +85,18 @@ const MealPlanHome = () => {
     };
     
 
-    const handleCheckboxChange = (index) => {
+    const handleCheckboxChange = (id) => {
         setSelectedRecipes((prevSelectedRecipes) => ({
             ...prevSelectedRecipes,
-            [index]: !prevSelectedRecipes[index],
+            [id]: !prevSelectedRecipes[id], // Toggle the selection state for the specific recipe id
         }));
     };
+    
 
     const handleCheckout = () => {
-        const selected = recipes.filter((_, index) => selectedRecipes[index]);
+        const selected = recipes.filter((recipe) => selectedRecipes[recipe.id]); // Use recipe.id to check selection
         const selectedIngredients = selected.map((recipe) => recipe.ingredients.split(', '));
+    
         if (selectedIngredients.length > 0) {
             navigate('/Checkout', { state: { ingredients: selectedIngredients } });
         } else {
@@ -135,9 +137,10 @@ const MealPlanHome = () => {
                                     <input
                                         type="checkbox"
                                         className="recipe-checkbox"
-                                        checked={!!selectedRecipes[recipe.id]}
-                                        onChange={() => handleCheckboxChange(recipe.id)}
+                                        checked={!!selectedRecipes[recipe.id]} // Check the selected state using recipe.id
+                                        onChange={() => handleCheckboxChange(recipe.id)} // Pass recipe.id to handleCheckboxChange
                                     />
+
                                     <img src={recipe.image} alt={recipe.name} className="recipe-image" />
                                 </div>
                                 <div className="recipe-details">
