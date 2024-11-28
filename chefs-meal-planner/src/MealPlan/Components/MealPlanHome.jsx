@@ -2,17 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../Style/mealPlan.css';
 import { fetchDBResponse, addRecipeToDB } from '../Functionality/FetchDB';
+import defaultImage from '../Assets/default_img.jpg';
 
 
-/**
- * Component for managing meal plans, including viewing, selecting,
- * adding recipes, and proceeding to checkout.
- * 
- * @component
- * @module MealPlanHome
- * @memberof MealPlan
- * @returns {JSX.Element} Meal plan management UI
- */
 const MealPlanHome = () => {
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -21,12 +13,11 @@ const MealPlanHome = () => {
     const [showForm, setShowForm] = useState(false);
     const navigate = useNavigate();
 
-    // Fetching meals from the server
     const fetchMeals = async () => {
         setIsLoading(true);
         try {
             const response = await fetchDBResponse();
-            const sortedRecipes = response.sort((a, b) => b.id - a.id); // Sort by ID (descending)
+            const sortedRecipes = response.sort((a, b) => b.id - a.id);
             setRecipes(sortedRecipes);
         } catch (error) {
             console.error('Error fetching recipes:', error);
@@ -36,19 +27,54 @@ const MealPlanHome = () => {
     };
 
     useEffect(() => {
-        fetchMeals(); // Fetch meals when the component mounts
+        // Scroll to the top of the page when the component mounts
+        window.scrollTo(0, 0);
     }, []);
 
-    // Handling form input changes for new recipe
+    useEffect(() => {
+        fetchMeals();
+    }, []);
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setNewRecipe((prevRecipe) => ({ ...prevRecipe, [name]: value }));
     };
 
-    // Adding new recipe to the database
+    // Function to confirm and delete a recipe
+    const handleDeleteRecipe = async (id) => {
+        const userConfirmed = window.confirm("Are you sure you want to delete this recipe?");
+        if (!userConfirmed) {
+            return; // Exit if user cancels the deletion
+        }
+
+        try {
+            console.log("ID to delete: ", id);
+            const response = await fetch(`http://localhost:5000/deleteRecipe/${id}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                // Remove the recipe from the local state
+                setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== id));
+            } else {
+                const errorData = await response.json();
+                alert(`Failed to delete recipe: ${errorData.error}`);
+            }
+        } catch (error) {
+            console.error('Error deleting recipe:', error);
+            alert('An error occurred while deleting the recipe.');
+        }
+    };
+
+
+
     const handleAddRecipe = async () => {
         try {
-            await addRecipeToDB(newRecipe);
+            // Use the default image for new recipes
+            const recipeWithDefaultImage = { ...newRecipe, image: defaultImage };
+    
+            await addRecipeToDB(recipeWithDefaultImage);
+    
             setNewRecipe({ name: '', description: '', ingredients: '', image: '' });
             setShowForm(false);
             fetchMeals();
@@ -57,8 +83,8 @@ const MealPlanHome = () => {
             alert('Failed to add recipe. Please check the details and try again.');
         }
     };
+    
 
-    // Handling recipe selection for checkout
     const handleCheckboxChange = (index) => {
         setSelectedRecipes((prevSelectedRecipes) => ({
             ...prevSelectedRecipes,
@@ -66,7 +92,6 @@ const MealPlanHome = () => {
         }));
     };
 
-    // Proceeding to checkout with selected recipes
     const handleCheckout = () => {
         const selected = recipes.filter((_, index) => selectedRecipes[index]);
         const selectedIngredients = selected.map((recipe) => recipe.ingredients.split(', '));
@@ -82,106 +107,63 @@ const MealPlanHome = () => {
             <center>
                 <div className="button-container-meal">
                     <h1 id="ai-title">Choose Your Meals</h1>
+                    <p>Customized Shopping List</p>
                     <button onClick={handleCheckout} className="checkout-button" disabled={isLoading}>
                         Checkout
                     </button>
+                    <p>Add Your Own Recipe</p>
                     <button onClick={() => setShowForm((prev) => !prev)} className="add-recipe-button">
                         +
                     </button>
                 </div>
-                {/* Add Recipe Form */}
                 {showForm && (
                     <div className="add-recipe-form">
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Recipe Name"
-                            value={newRecipe.name}
-                            onChange={handleInputChange}
-                        />
-                        <input
-                            type="text"
-                            name="description"
-                            placeholder="Description"
-                            value={newRecipe.description}
-                            onChange={handleInputChange}
-                        />
-                        <input
-                            type="text"
-                            name="ingredients"
-                            placeholder="Ingredients"
-                            value={newRecipe.ingredients}
-                            onChange={handleInputChange}
-                        />
-                        <input
-                            type="text"
-                            name="image"
-                            placeholder="Image URL"
-                            value={newRecipe.image}
-                            onChange={handleInputChange}
-                        />
+                        <input type="text" name="name" placeholder="Recipe Name" value={newRecipe.name} onChange={handleInputChange} />
+                        <input type="text" name="description" placeholder="Description" value={newRecipe.description} onChange={handleInputChange} />
+                        <input type="text" name="ingredients" placeholder="Ingredients" value={newRecipe.ingredients} onChange={handleInputChange} />
+                        <input type="text" name="image" placeholder="Image URL" value={newRecipe.image} onChange={handleInputChange} />
                         <button onClick={handleAddRecipe}>Add Recipe</button>
                     </div>
                 )}
-
-                {/* Loading or displaying the recipes */}
                 {isLoading ? (
                     <p>Loading recipes...</p>
                 ) : (
-                    <div className="table-container">
-                        <table className="recipe-table">
-                            <thead>
-                                <tr>
-                                    <th>Select</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Ingredients</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {recipes.map((recipe, index) => (
-                                    <tr key={index}>
-                                        <td>
-                                            <input
-                                                type="checkbox"
-                                                checked={!!selectedRecipes[index]}
-                                                onChange={() => handleCheckboxChange(index)}
-                                            />
-                                        </td>
-                                        <td>
-                                            {recipe.image ? (
-                                                <img src={recipe.image} alt={recipe.name} className="recipe-image" />
-                                            ) : (
-                                                'No Image'
-                                            )}
-                                        </td>
-                                        <td className="recipe-name">{recipe.name}</td>
-                                        <td>{recipe.description}</td>
-                                        <td>
-                                            {/* Ingredients display */}
-                                            <ul className="ingredients-list">
-                                                {recipe.ingredients.split(',').map((ingredient, idx) => {
-                                                    const [item, details] = ingredient.split('-').map(part => part.trim());
-                                                    return (
-                                                        <li key={idx} className="ingredient-item">
-                                                            {item && <strong>{item}</strong>}
-                                                            {details && (
-                                                                <div style={{ marginLeft: '16px' }}>
-                                                                    {details}
-                                                                </div>
-                                                            )}
-                                                        </li>
-                                                    );
-                                                })}
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-
+                    <div className="recipe-grid">
+                        {recipes.map((recipe) => (
+                            <div key={recipe.id} className="recipe-card">
+                                <div className="recipe-image-container">
+                                    <input
+                                        type="checkbox"
+                                        className="recipe-checkbox"
+                                        checked={!!selectedRecipes[recipe.id]}
+                                        onChange={() => handleCheckboxChange(recipe.id)}
+                                    />
+                                    <img src={recipe.image} alt={recipe.name} className="recipe-image" />
+                                </div>
+                                <div className="recipe-details">
+                                    <h3>{recipe.name}</h3>
+                                    <p>{recipe.description}</p>
+                                    <div className="recipe-ingredients">
+                                        <ul>
+                                            {recipe.ingredients.split(',').map((ingredient, idx) => (
+                                                <li key={idx}>{ingredient.trim()}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="recipe-actions">
+                                    <button
+                                        className="delete-button"
+                                        onClick={() => handleDeleteRecipe(recipe.id)}
+                                    >
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
                     </div>
+
+
                 )}
             </center>
         </div>
