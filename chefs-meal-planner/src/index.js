@@ -26,6 +26,8 @@ import Navbar from './GlobalComponents/Navbar.jsx';
 import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
 import Footer from './GlobalComponents/Footer.jsx';
 import './Style/main.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

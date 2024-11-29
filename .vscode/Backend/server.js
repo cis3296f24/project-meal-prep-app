@@ -45,6 +45,33 @@ app.post('/addRecipe', (req, res) => {
     });
 });
 
+// Route to delete a recipe by ID
+app.delete('/deleteRecipe/:id', (req, res) => {
+    const { id } = req.params;
+
+    // Check if ID is provided
+    if (!id) {
+        return res.status(400).json({ error: 'Recipe ID is required' });
+    }
+
+    const query = 'DELETE FROM Recipes WHERE id = ?';
+    db.query(query, [id], (err, results) => {
+        if (err) {
+            console.error('Error deleting recipe:', err);
+            res.status(500).json({ error: 'Failed to delete recipe' });
+            return;
+        }
+
+        // Check if a recipe was deleted
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ error: 'Recipe not found' });
+        }
+
+        res.status(200).json({ message: 'Recipe deleted successfully' });
+    });
+});
+
+
 // Updated Route to get all recipes with IDs
 app.get('/recipes', (req, res) => {
     const query = 'SELECT id, recipe_name AS name, recipe_description AS description, recipe_image AS image, ingredient_list AS ingredients FROM Recipes';
