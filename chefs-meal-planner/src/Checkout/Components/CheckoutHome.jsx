@@ -11,34 +11,51 @@ import '../../Style/mealPlan.css';
  * @memberof Checkout
  * @returns {JSX.Element} Shopping list for selected meals
  */
+
 const CheckoutHome = () => {
     const location = useLocation();
     const ingredients = useMemo(() => location.state?.ingredients || [], [location.state]);
     const [shoppingList, setShoppingList] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false); // Initially not loading
+    const [numPeople, setNumPeople] = useState('2');
+    const handleKeyPress = async (event) => {
+        if (event.key === "Enter") {
+            const inputValue = event.target.value.trim(); // Get input value
 
-    useEffect(() => {
-        const getShoppingList = async () => {
-            try {
-                setLoading(true);
-                const list = await fetchShoppingList(ingredients);
-                setShoppingList(list);
-            } catch (error) {
-                console.error('Error:', error);
-            } finally {
-                setLoading(false);
+            if (!inputValue || isNaN(inputValue) || parseInt(inputValue) <= 0 ) {
+                alert("Please enter the number of people.");
+                return;
             }
-        };
+            setNumPeople(inputValue);
+            try {
+                setLoading(true); // Start loading
+                const scaledIngredients = ingredients.map(
+                    (ingredient) => `${ingredient} for ${inputValue} people`
+                ); // Example: scale ingredients based on input value
 
-        if (ingredients.length > 0) {
-            getShoppingList();
+                const list = await fetchShoppingList(scaledIngredients, inputValue); // Call fetchShoppingList
+                setShoppingList(list); // Update shopping list state
+            } catch (error) {
+                console.error("Error fetching shopping list:", error);
+                setShoppingList("An error occurred while generating the shopping list.");
+            } finally {
+                setLoading(false); // End loading
+            }
         }
-    }, [ingredients]);
+    };
 
     return (
         <div className='checkout'>
             <h1>Checkout</h1>
-            <h2>Your Shopping List for Two People</h2>
+            <label htmlFor="amount-per-person">Amount of people:</label>
+            <input
+                type="text"
+                id="amount-per-person"
+                name="entry-box"
+                onKeyPress={handleKeyPress} // Attach keypress event
+                placeholder="Enter number of people and press Enter"
+            />
+            <h2>Your Shopping List for {numPeople} People</h2>
             {loading ? (
                 <p>Loading your custom shopping list...</p>
             ) : (
