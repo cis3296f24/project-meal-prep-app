@@ -47,7 +47,6 @@ const CheckoutHome = () => {
     return (
         <div className='checkout'>
             <h1>Checkout</h1>
-            <label htmlFor="amount-per-person">Amount of people:</label>
             <input
                 type="text"
                 id="amount-per-person"
