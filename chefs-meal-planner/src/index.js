@@ -17,10 +17,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ParkSearch from './ParkSearch.js';
-import ParkInfo from './ParkInfo.js';
 import HomePage from './HomePage.js';
-import ParkPlan from './ParkPlan.js';
 import MealAI from './MealAI.js';
 import MealPlan from './MealPlan.js';
 import Checkout from './Checkout.js';
@@ -29,6 +26,8 @@ import Navbar from './GlobalComponents/Navbar.jsx';
 import {BrowserRouter as Router, Routes,Route} from "react-router-dom";
 import Footer from './GlobalComponents/Footer.jsx';
 import './Style/main.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -37,9 +36,6 @@ root.render(
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/ParkSearch" element={<ParkSearch />} />
-                <Route path="/ParkInfo" element={<ParkInfo />} />
-                <Route path="/ParkPlan" element={<ParkPlan />} />
                 <Route path="/MealAI" element={<MealAI/>} />
                 <Route path="/MealPlan" element={<MealPlan/>} />
                 <Route path="/Checkout" element={<Checkout/>} />
