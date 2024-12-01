@@ -1,19 +1,18 @@
 /* Main styling for the ParkAI component */
 .meal-ai {
-    background-image: url('recipe.jpg'); /* Replace with your image URL */
-    background-size: cover;
-    background-position: left center; /* Adjusted to move image slightly to the left */
-    background-attachment: fixed;
-    background-color: #f0f0f0; /* Soft light background color */
-    color: #333;
-    font-family: 'Lora', serif; /* Elegant serif font */
-    padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Align all content to the right */
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 2rem;
+    background-image: url('recipe.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+    font-family: 'Lora', serif;
     min-height: 100vh;
-    justify-content: flex-start; /* Keep the content aligned to the top */
 }
 
 /* Title styling */
@@ -143,10 +142,12 @@
 /* Filters Section */
 .filters {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 25px;
     flex-wrap: wrap;
     align-items: center;
+    margin: 20px auto;
+    max-width: 800px;
 }
 
 /* Filter container (individual filter options) */
