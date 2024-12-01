@@ -11,8 +11,8 @@ const Welcome = () => {
         <div className="welcome">
             <h1 className="welcome-title">Discover the secret behind great meals</h1>
             <p className="welcome-text">
-                Welcome to the Secret Recipe App! This web app is designed to help you plan delicious and healthy meals for the week. 
-                Click on "Get Recipes" to discover new recipes tailored to your preferences, or click on "My Recipes" to organize your weekly meals and stay on track with your goals.
+                Welcome to My Secret Recipes! This website is designed to help you plan delicious and healthy meals for the week using AI.
+                Click on "Get Recipes" to discover new recipes tailored to your preferences, or click on "My Recipes" to organize your weekly meals.
             </p>
             <div>
                 {/* Additional content (if needed) */}
