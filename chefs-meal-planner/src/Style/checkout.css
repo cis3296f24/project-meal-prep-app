@@ -23,6 +23,7 @@
     border-radius: 5px; /* Round the corners */
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Add subtle inner shadow */
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    text-align: center; /* Centers the text inside the input box */
 }
 
 /* Title styling for checkout */
