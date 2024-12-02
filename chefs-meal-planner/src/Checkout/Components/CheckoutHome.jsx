@@ -55,9 +55,41 @@ const CheckoutHome = () => {
 
     const saveAsPDF = () => {
         const doc = new jsPDF();
-        doc.text(`Shopping List for ${numPeople} People`, 10, 10); // Add a title
-        doc.text(shoppingList, 10, 20); // Add the shopping list
-        doc.save(`shopping_list_${numPeople}_people.pdf`); // Save the PDF
+
+        // Fill the background with a color resembling old paper (light brownish/yellowish color)
+        doc.setFillColor(239, 224, 185); // RGB color to create an old paper-like shade
+        doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F'); // Draw a filled rectangle over the entire page
+
+        // Get the page width to calculate the center point
+        const pageWidth = doc.internal.pageSize.getWidth();
+
+        // Title: Centered, Bold, and Underlined at the top of the page
+        const title = `Shopping List`;
+        const titleWidth = doc.getTextWidth(title);
+        const titleX = (pageWidth - titleWidth) / 2; // Calculate X position for centering
+
+        // Set font to bold and draw the title
+        doc.setFont("helvetica", "bold");
+        doc.text(title, titleX, 20);
+
+        // Draw an underline with extra width to avoid hanging letters
+        const underlinePadding = 2; // Add extra padding to the left and right for better coverage
+        doc.setLineWidth(0.5);
+        doc.line(titleX - underlinePadding, 22, titleX + titleWidth + underlinePadding, 22); // Draw underline with extra padding
+
+        // Shopping list content: Centered text for each line
+        const shoppingListLines = shoppingList.split('\n');
+        let yOffset = 40; // Start below the title, 20 units down
+
+        shoppingListLines.forEach((line) => {
+            const lineWidth = doc.getTextWidth(line);
+            const lineX = (pageWidth - lineWidth) / 2; // Calculate X position for centering
+            doc.text(line, lineX, yOffset);
+            yOffset += 10; // Increase y position for the next line
+        });
+
+        // Save the PDF
+        doc.save(`shopping_list_${numPeople}_people.pdf`);
     };
 
     return (
