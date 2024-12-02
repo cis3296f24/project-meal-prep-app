@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const fetchShoppingList = async (ingredients, numPeople) => {
     const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-    const prompt = `Create a shopping list based on the following ingredients. Ensure quantities are sufficient for ${numPeople} people, and structure the list clearly by category (e.g., Produce, Dairy, Pantry). Ingredients:\n${ingredients.join(", ")}. Only return the list.`;
+    const prompt = `Create a shopping list based on the following ingredients. Ensure quantities are sufficient for ${numPeople} people, and structure the list clearly by category (e.g., Produce, Dairy, Pantry),Do not use any special symbols when displaying each category. Ingredients:\n${ingredients.join(", ")}. Only return the list.`;
     try {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
