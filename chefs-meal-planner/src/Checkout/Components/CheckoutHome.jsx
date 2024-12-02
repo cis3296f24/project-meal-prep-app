@@ -62,10 +62,10 @@ const CheckoutHome = () => {
 
     return (
         <div className='checkout'>
-            <h1>Checkout</h1>
+            <h1 className="checkout-title">Checkout</h1>
             <input
                 type="text"
-                id="amount-per-person"
+                className ="amount-per-person"
                 name="entry-box"
                 value={numPeople} // Make the input a controlled component
                 onChange={handleChange} // Update state on change
@@ -76,7 +76,7 @@ const CheckoutHome = () => {
             {!loading && showHeading && (
                 <>
                     <h2>Your Shopping List for {displayedNumberOfPeople} People</h2>
-                    <button onClick={saveAsPDF}>Save as PDF</button>
+                    <button className = "saveAsPDF" onClick={saveAsPDF}>Save as PDF</button>
                 </>
             )}
             {!loading && shoppingList && (
