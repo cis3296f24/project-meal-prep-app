@@ -36,7 +36,7 @@ Follow this project board to know the latest status of the project: (https://git
 7. `npm start` will open the app in a new tab with a localhost server
 8. Open an additional terminal to run the server locally to connect to the database. 
 
-### Surces to access API Keys
+### Sources to access API Keys
 1. OpenAI: https://platform.openai.com/docs/api-reference/chat/create
 2. Spoonacular: https://spoonacular.com/food-api
 
