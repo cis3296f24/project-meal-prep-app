@@ -26,7 +26,7 @@ const CheckoutHome = () => {
             const scaledIngredients = ingredients.map(
                 (ingredient) => `${ingredient} for ${numPeople} people`
             );
-
+            
             const list = await fetchShoppingList(scaledIngredients, numPeople); // Call fetchShoppingList
             setShoppingList(list); // Update shopping list state
         } catch (error) {
@@ -40,20 +40,23 @@ const CheckoutHome = () => {
     const saveAsPDF = () => {
         const doc = new jsPDF();
     
-        // Fill the background with a color resembling old paper
-        doc.setFillColor(239, 224, 185); // RGB color for old paper-like shade
-        doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F'); // Background fill
+        // Function to apply consistent page styling
+        const applyPageStyling = () => {
+            doc.setFillColor(239, 224, 185); // Old paper-like background
+            doc.rect(0, 0, doc.internal.pageSize.getWidth(), doc.internal.pageSize.getHeight(), 'F'); // Fill background
+            doc.setFont("helvetica", "bold"); // Ensure font remains bold
+            doc.setFontSize(16); // Font size for title
+        };
     
-        // Page width and margins
+        // Apply styling for the first page
+        applyPageStyling();
+    
         const pageWidth = doc.internal.pageSize.getWidth();
-        const pageMargin = 10; // Margin on each side
+        const pageMargin = 10;
+        let yOffset = 40; // Start below the title
     
-        // Title: Centered, Bold, and Underlined at the top
+        // Title styling
         const title = `Shopping List`;
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(16);
-    
-        // Center the title
         const titleWidth = doc.getTextWidth(title);
         const titleX = (pageWidth - titleWidth) / 2;
         doc.text(title, titleX, 20);
@@ -63,23 +66,21 @@ const CheckoutHome = () => {
         doc.setLineWidth(0.5);
         doc.line(titleX - underlinePadding, 22, titleX + titleWidth + underlinePadding, 22);
     
-        // Shopping list content
+        // Process the shopping list
         const shoppingListLines = shoppingList.split('\n');
-        let yOffset = 40; // Start below the title, 20 units down
-    
         shoppingListLines.forEach((line) => {
-            // Split the line into smaller parts that fit within the page width minus margins
             const wrappedText = doc.splitTextToSize(line, pageWidth - pageMargin * 2);
-    
-            // Add each line of the wrapped text to the PDF
             wrappedText.forEach((wrappedLine) => {
-                doc.text(wrappedLine, pageMargin, yOffset); // Left-aligned with margin
-                yOffset += 10; // Increment the y position for the next line
+                doc.setFont("helvetica", "normal"); // Ensure list content is normal font
+                doc.setFontSize(12); // Set normal font size for content
+                doc.text(wrappedLine, pageMargin, yOffset);
+                yOffset += 10;
     
                 // Handle page overflow
-                if (yOffset > doc.internal.pageSize.getHeight() - 10) { // Leave bottom margin
+                if (yOffset > doc.internal.pageSize.getHeight() - pageMargin) {
                     doc.addPage();
-                    yOffset = 20; // Reset y position for new page
+                    applyPageStyling(); // Reapply bold styling for new page
+                    yOffset = 20; // Reset yOffset for the new page
                 }
             });
         });
@@ -87,6 +88,8 @@ const CheckoutHome = () => {
         // Save the PDF
         doc.save(`shopping_list_${numPeople}_people.pdf`);
     };
+    
+    
     
 
     return (

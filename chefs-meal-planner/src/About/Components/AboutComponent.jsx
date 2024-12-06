@@ -4,7 +4,7 @@
  * @memberof About
  * @returns {JSX.Element} The rendered AboutComponent component.
  */
-import React, { useState, useEffect } from 'react';
+
 import '../../Style/about.css';
 import priyaImg from '../Assets/priya.jpg'; // Replace with actual images for reviews
 import marcusImg from '../Assets/marcus.jpg';

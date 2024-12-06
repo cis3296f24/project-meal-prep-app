@@ -71,16 +71,17 @@
 }
 
 /* Button styling with hover effect */
+/* Button styling with hover effect */
 .homepage-button-wrapper .homepage-button {
     background-color: #ff7043;
     color: #ffffff;
-    font-size: 1.25rem;
-    padding: 0.75rem 2rem;
+    font-size: 1.5rem; /* Increase font size */
+    padding: 1rem 2.5rem; /* Add more padding */
     border: none;
     border-radius: 50px; /* Rounded buttons */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Slightly larger shadow */
     transition: background-color 0.3s ease, transform 0.2s ease;
-    min-width: 250px; /* Consistent button width */
+    min-width: 300px; /* Increase minimum width */
     text-transform: uppercase; /* Emphasize text */
     font-weight: bold;
 }
@@ -90,6 +91,7 @@
     cursor: pointer;
     transform: scale(1.1); /* Slightly enlarge on hover */
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
