@@ -1,6 +1,13 @@
 import axios from 'axios';
 
 /**
+ * Base URL for the backend API
+ * @constant
+ * @type {string}
+ */
+const API_BASE_URL = 'https://my-secret-recipes-db.onrender.com';
+
+/**
  * Fetches all recipes from the database.
  * 
  * @function fetchDBResponse
@@ -9,17 +16,15 @@ import axios from 'axios';
  */
 export const fetchDBResponse = async () => {
     try {
-        // Fetch all recipes from the backend API
-        const response = await axios.get('http://localhost:5000/recipes'); // Replace with your API endpoint
+        const response = await axios.get(`${API_BASE_URL}/recipes`);
 
-        // Check if the response contains data
         if (!response.data) {
             throw new Error('No data received from the database');
         }
 
-        return response.data; // Expecting an array of recipe objects
+        return response.data;
     } catch (error) {
-        console.error('Error fetching recipes from the database:', error.message);
+        console.error('Error fetching recipes from the database:', error.response?.data || error.message);
         throw new Error('Failed to fetch recipes from the database.');
     }
 };
@@ -38,26 +43,44 @@ export const fetchDBResponse = async () => {
  */
 export const addRecipeToDB = async (recipe) => {
     try {
-        // Validate input to ensure required fields are provided
         if (!recipe.name || !recipe.description || !recipe.ingredients) {
             throw new Error('Missing required fields: name, description, or ingredients');
         }
 
-        // Send the recipe data to the backend API
-        const response = await axios.post('http://localhost:5000/addRecipe', recipe); // Replace with your API endpoint
-
-        return response.data; // Assuming the API returns the added recipe or a success message
+        const response = await axios.post(`${API_BASE_URL}/addRecipe`, recipe);
+        return response.data;
     } catch (error) {
         console.error('Error adding recipe to the database:', error.response?.data || error.message);
         throw new Error('Failed to add recipe to the database.');
     }
 };
 
-// Assign the object to a variable first
+/**
+ * Deletes a recipe from the database by ID.
+ * 
+ * @function deleteRecipeFromDB
+ * @param {number} id - ID of the recipe to be deleted
+ * @returns {Object} - Response data from the API
+ * @throws {Error} - If the API request fails
+ */
+export const deleteRecipeFromDB = async (id) => {
+    try {
+        if (!id) {
+            throw new Error('Recipe ID is required');
+        }
+
+        const response = await axios.delete(`${API_BASE_URL}/deleteRecipe/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error deleting recipe from the database:', error.response?.data || error.message);
+        throw new Error('Failed to delete recipe from the database.');
+    }
+};
+
 const FetchDB = {
     fetchDBResponse,
     addRecipeToDB,
+    deleteRecipeFromDB,
 };
 
-// Export the variable as default
 export default FetchDB;

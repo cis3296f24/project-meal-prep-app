@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../Style/mealPlan.css';
-import { fetchDBResponse, addRecipeToDB } from '../Functionality/FetchDB';
+import FetchDB from '../Functionality/FetchDB'; // Updated import for FetchDB
 import defaultImage from '../Assets/default_img.jpg';
-
 
 const MealPlanHome = () => {
     const [recipes, setRecipes] = useState([]);
@@ -16,7 +15,7 @@ const MealPlanHome = () => {
     const fetchMeals = async () => {
         setIsLoading(true);
         try {
-            const response = await fetchDBResponse();
+            const response = await FetchDB.fetchDBResponse(); // Use FetchDB to fetch recipes
             const sortedRecipes = response.sort((a, b) => b.id - a.id);
             setRecipes(sortedRecipes);
         } catch (error) {
@@ -40,7 +39,6 @@ const MealPlanHome = () => {
         setNewRecipe((prevRecipe) => ({ ...prevRecipe, [name]: value }));
     };
 
-    // Function to confirm and delete a recipe
     const handleDeleteRecipe = async (id) => {
         const userConfirmed = window.confirm("Are you sure you want to delete this recipe?");
         if (!userConfirmed) {
@@ -48,33 +46,19 @@ const MealPlanHome = () => {
         }
 
         try {
-            console.log("ID to delete: ", id);
-            const response = await fetch(`http://localhost:5000/deleteRecipe/${id}`, {
-                method: 'DELETE',
-            });
-
-            if (response.ok) {
-                // Remove the recipe from the local state
-                setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== id));
-            } else {
-                const errorData = await response.json();
-                alert(`Failed to delete recipe: ${errorData.error}`);
-            }
+            await FetchDB.deleteRecipeFromDB(id); // Use FetchDB to delete a recipe
+            setRecipes((prevRecipes) => prevRecipes.filter((recipe) => recipe.id !== id));
         } catch (error) {
             console.error('Error deleting recipe:', error);
             alert('An error occurred while deleting the recipe.');
         }
     };
 
-
-
     const handleAddRecipe = async () => {
         try {
             // Use the default image for new recipes
             const recipeWithDefaultImage = { ...newRecipe, image: defaultImage };
-    
-            await addRecipeToDB(recipeWithDefaultImage);
-    
+            await FetchDB.addRecipeToDB(recipeWithDefaultImage); // Use FetchDB to add a recipe
             setNewRecipe({ name: '', description: '', ingredients: '', image: '' });
             setShowForm(false);
             fetchMeals();
@@ -83,7 +67,6 @@ const MealPlanHome = () => {
             alert('Failed to add recipe. Please check the details and try again.');
         }
     };
-    
 
     const handleCheckboxChange = (id) => {
         setSelectedRecipes((prevSelectedRecipes) => ({
@@ -91,12 +74,11 @@ const MealPlanHome = () => {
             [id]: !prevSelectedRecipes[id], // Toggle the selection state for the specific recipe id
         }));
     };
-    
 
     const handleCheckout = () => {
         const selected = recipes.filter((recipe) => selectedRecipes[recipe.id]); // Use recipe.id to check selection
         const selectedIngredients = selected.map((recipe) => recipe.ingredients.split(', '));
-    
+
         if (selectedIngredients.length > 0) {
             navigate('/Checkout', { state: { ingredients: selectedIngredients } });
         } else {
@@ -159,14 +141,12 @@ const MealPlanHome = () => {
                                         className="delete-button"
                                         onClick={() => handleDeleteRecipe(recipe.id)}
                                     >
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                        <i className="fa fa-trash" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>
                         ))}
                     </div>
-
-
                 )}
             </center>
         </div>
