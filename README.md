@@ -33,8 +33,7 @@ Follow this project board to know the latest status of the project: (https://git
     2.   REACT_APP_SPOONACULAR_API_KEY = your key here
 
 6. `npm install` will install the necessary packages 
-7. `npm start` will open the app in a new tab with a localhost server
-8. Open an additional terminal to run the server locally to connect to the database. 
+7. `npm start` will open the app in a new tab with a localhost server 
 
 ### Sources to access API Keys
 1. OpenAI: https://platform.openai.com/docs/api-reference/chat/create
