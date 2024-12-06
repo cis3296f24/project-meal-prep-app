@@ -2,7 +2,16 @@ import axios from 'axios';
 
 export const fetchShoppingList = async (ingredients, numPeople) => {
     const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
-    const prompt = `Create a shopping list based on the following ingredients. Ensure quantities are sufficient for ${numPeople} people, and structure the list clearly by category (e.g., Produce, Dairy, Pantry). Ingredients:\n${ingredients.join(", ")}. Only return the list.`;
+            console.log("Ingrediant: ", ingredients)
+            console.log("num: ", numPeople)
+    const prompt = `
+    Create a shopping list based on the following ingredients and scale the quantities appropriately for ${numPeople} people. 
+    If the ingredients do not specify quantities, assume the default amount is sufficient for one person and scale accordingly. 
+    Structure the list clearly by category (e.g., Produce, Dairy, Pantry).
+    Ingredients: ${ingredients.join(", ")}. 
+    Only return the scaled list.
+            `;
+            
     try {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
