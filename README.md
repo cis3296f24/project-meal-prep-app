@@ -14,6 +14,7 @@ The meal plan page display all the current recipes stored in users database.  Th
 This page generates a custome shopping list based on the users selection.
 
 # How to run
+To see the current deployment, click [Here](https://my-secret-recipes.netlify.app/).
 
 To run on your local machine, go to the [How to Build](#how-to-build): 
 
@@ -27,8 +28,15 @@ Follow this project board to know the latest status of the project: (https://git
     1. `npm -v`
     2. `node -v`
 4. `cd chefs-meal-planner`(the lowercase one)
-5. `npm install` will install the necessary packages 
-6. `npm start` will open the app in a new tab with a localhost server
-7. Open an additional terminal to run the server locally to connect to the database. 
-8. `cd .vscode\Backend`
-9. `npm start`(server is running on http://localhost:5000)
+5. Create a file called .env inside chefs-meal-planner directory and add these two variables to hold api keys. (Sources to access your own API Keys can be found below)
+    1.   REACT_APP_OPENAI_API_KEY = your key here
+    2.   REACT_APP_SPOONACULAR_API_KEY = your key here
+
+6. `npm install` will install the necessary packages 
+7. `npm start` will open the app in a new tab with a localhost server
+8. Open an additional terminal to run the server locally to connect to the database. 
+
+### Surces to access API Keys
+1. OpenAI: https://platform.openai.com/docs/api-reference/chat/create
+2. Spoonacular: https://spoonacular.com/food-api
+
